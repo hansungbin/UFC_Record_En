@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@+id/navigation_record">
+
+    <fragment
+        android:id="@+id/navigation_record"
+        android:name="binny.ufc_record_en.ui.record.RecordFragment"
+        android:label="@string/record"
+        tools:layout="@layout/fragment_record" />
+
+    <fragment
+        android:id="@+id/navigation_fighter"
+        android:name="binny.ufc_record_en.ui.fighter.FighterListFragment"
+        android:label="@string/fighter"
+        tools:layout="@layout/fragment_fighter" />
+
+    <fragment
+        android:id="@+id/navigation_ranking"
+        android:name="binny.ufc_record_en.ui.ranking.RankingFragment"
+        android:label="@string/Ranking"
+        tools:layout="@layout/fragment_ranking" />
+
+</navigation>
