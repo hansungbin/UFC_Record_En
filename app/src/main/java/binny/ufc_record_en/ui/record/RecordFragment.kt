@@ -1,60 +1,213 @@
 package binny.ufc_record_en.ui.record
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import binny.ufc_record_en.R
+import binny.ufc_record_en.model.Record
+import binny.ufc_record_en.model.UfcEvent
+import binny.ufc_record_en.retrofit.ApiInterface
+import binny.ufc_record_en.retrofit.HttpClient
+import com.bumptech.glide.Glide
+import retrofit2.Call
+import retrofit2.Callback
+import java.util.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RecordFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RecordFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var rRecyclerView: RecyclerView? = null
+    private var btnSearch: Button? = null
+    private var etSearch: EditText? = null
+    private val rApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
+    private var result: Record? = null
+    val logTag = "로그 RecordFragment"
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_record, container, false)
+
+        val root = inflater.inflate(R.layout.fragment_record, container, false)
+
+        rRecyclerView = root.findViewById(R.id.recordRecyclerView)
+        rRecyclerView?.layoutManager = LinearLayoutManager(context)
+        val rAdapter = Radapter()
+
+        rRecyclerView?.adapter = rAdapter
+        etSearch = root.findViewById(R.id.et_record_search)
+        btnSearch = root.findViewById(R.id.btn_record_search)
+//        searchFloatingButton = root.findViewById(R.id.fab)
+        getRecordApi(rAdapter)
+
+        btnSearch!!.setOnClickListener {
+            Log.d(logTag,"onCreateView is called // btnSearch clicked")
+            getRecordApi(rAdapter)
+        }
+
+        return root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RecordFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RecordFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun getRecordApi(rAdapter: Radapter) {
+
+        //쿼리 값을 Map 으로 생성하여 api 호출
+        val queries = mapOf("ufc_event_search" to etSearch!!.text.toString())
+        val call: Call<Record?>? = rApi!!.getRecordData(queries)
+
+        call?.enqueue(object : Callback<Record?> {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onResponse(
+                call: Call<Record?>,
+                response: retrofit2.Response<Record?>
+            ) {
+                //응답 성공시 어댑터에 결과 전달
+                result = response.body() as Record
+
+                rAdapter.clear()
+
+                rAdapter.setList(result!!.data)
+            }
+
+            override fun onFailure(call: Call<Record?>, t: Throwable) {
+                Log.e("D/OkHttp", "onFailure - message=" + t.message)
+            }
+        })
+    }
+
+    override fun onDestroyView() {
+
+        super.onDestroyView()
+        rRecyclerView?.adapter = null
+        rRecyclerView = null
+    }
+
+    inner class Radapter : RecyclerView.Adapter<RecordFragment.Radapter.RvhItem>() {
+
+        private var showMatchCount: Int? = 0
+        private var matchCount: Int? = 0
+        private var mUfcRecord: ArrayList<UfcEvent>? = ArrayList()
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvhItem {
+
+            val vhView =
+                LayoutInflater.from(parent.context).inflate(R.layout.vh_record, parent, false)
+            return RvhItem(vhView)
+        }
+
+
+        @SuppressLint("NotifyDataSetChanged")
+        fun setList(ufcData: List<UfcEvent>?) {
+            notifyDataSetChanged()
+            mUfcRecord!!.addAll(ufcData!!)
+            notifyDataSetChanged()
+
+        }
+
+        fun clear() {
+            val size: Int = mUfcRecord!!.size
+            mUfcRecord!!.clear()
+            notifyItemRangeRemoved(0, size)
+        }
+
+
+        @SuppressLint("SetTextI18n")
+        override fun onBindViewHolder(holder: RvhItem, position: Int) {
+
+            val record: UfcEvent = mUfcRecord!![position]
+
+            holder.ufcEventName.text = record.ufc_event_name
+            holder.ufcEventDate.text = record.ufc_event_date
+            holder.ufcEventCity.text = record.ufc_event_city
+            holder.ufcEventPromotion.text = record.ufc_event_promotion
+            showMatchCount = record.ufc_event_count?.toInt()
+
+            matchCount = record.ufc_event_result!!.size
+
+            var ufcEventWinner: String? = null
+            var ufcEventLoser: String? = null
+
+            var i = 0
+
+            if (record.ufc_event_result!!.isNotEmpty()) {
+                while (i < 3) {
+
+                    val winner: String? =
+                        if (record.ufc_event_result!![i].game_winner!!.length > 14) {
+                            record.ufc_event_result!![i].game_winner?.substring(0, 12) + ".."
+                        } else {
+                            record.ufc_event_result!![i].game_winner
+                        }
+
+                    val loser: String? =
+                        if (record.ufc_event_result!![i].game_loser!!.length > 14) {
+                            record.ufc_event_result!![i].game_loser?.substring(0, 12) + ".."
+                        } else {
+                            record.ufc_event_result!![i].game_loser
+                        }
+
+                    if (ufcEventWinner == null) {
+                        ufcEventWinner = "(W)$winner"
+                        ufcEventLoser = "(L)$loser"
+                    } else {
+                        ufcEventWinner += "\n(W)$winner"
+                        ufcEventLoser += "\n(L)$loser"
+                    }
+                    i++
+                    matchCount = i
                 }
             }
+
+            holder.ufcEventWinner.text = ufcEventWinner
+            holder.ufcEventLoser.text = ufcEventLoser
+            holder.ufcEventMore.text =
+                "+ ${record.ufc_event_result!!.size - (matchCount!!)} match\nmore"
+
+            if (record.ufc_event_result!!.isEmpty()) {
+                holder.ufcEventMore.text = "No Match"
+                holder.tvVs.visibility = View.INVISIBLE
+            } else {holder.tvVs.visibility = View.VISIBLE}
+
+            Glide.with(holder.itemView.context).load(record.ufc_event_image)
+                .into(holder.ufcEventImage)
+
+            holder.listLayout.setOnClickListener {
+
+                val intent = Intent(activity, DetailRecordActivity::class.java)
+                intent.putExtra("ufcEventName", holder.ufcEventName.text)
+                startActivity(intent)
+            }
+
+        }
+
+        override fun getItemCount(): Int {
+
+            return mUfcRecord!!.size
+        }
+
+        inner class RvhItem(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            var ufcEventName: TextView = itemView.findViewById(R.id.tv_ufc_event_name)
+            var ufcEventImage: ImageView = itemView.findViewById(R.id.iv_ufc_poster_image)
+            var ufcEventDate: TextView = itemView.findViewById(R.id.tv_fighter_ranking)
+            var ufcEventCity: TextView = itemView.findViewById(R.id.tv_ufc_event_city)
+            var ufcEventPromotion: TextView = itemView.findViewById(R.id.tv_ufc_Event_Promotion)
+            var ufcEventWinner: TextView = itemView.findViewById(R.id.currently_fighter_division)
+            var ufcEventLoser: TextView = itemView.findViewById(R.id.tv_ufc_event_loser)
+            var ufcEventMore: TextView = itemView.findViewById(R.id.tv_more_match)
+            var tvVs: TextView = itemView.findViewById(R.id.tv_vs)
+            var listLayout: ConstraintLayout = itemView.findViewById(R.id.la_list)
+        }
     }
 }

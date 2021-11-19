@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/division_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/match_kind_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/match_kind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#26357B"
+                    android:textStyle="bold|italic"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:text="A Match" />
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/row"
+            android:layout_below="@+id/division_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/match_layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp"
+                android:weightSum="3">
+
+
+                <TextView
+                    android:id="@+id/textWeightClass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/row"
+                    android:text="@string/weight_class" />
+
+                <TextView
+                    android:id="@+id/textWinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/row"
+                    android:gravity="center"
+                    android:text="@string/winner" />
+
+                <TextView
+                    android:id="@+id/TextLoser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/row"
+                    android:gravity="center"
+                    android:text="@string/loser" />
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/numRelative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Gnumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textStyle="italic"
+                    android:textColor="#6F6F6F" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/match_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/numRelative"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/match_layout0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:weightSum="3">
+
+
+                    <TextView
+                        android:id="@+id/Gclass"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorNavIcon"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+
+                        android:text="A" />
+
+                    <TextView
+                        android:id="@+id/winner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorNavIcon"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text="B" />
+
+                    <TextView
+                        android:id="@+id/loser"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/colorNavIcon"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:text="C" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/match_layout0"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="4dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/method"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="2"
+                        android:text="D"
+                        android:textColor="@color/colorNavIcon" />
+
+                    <TextView
+                        android:id="@+id/round"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="E"
+                        android:textColor="@color/colorNavIcon" />
+
+                    <TextView
+                        android:id="@+id/match_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="F"
+                        android:textColor="@color/colorNavIcon" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

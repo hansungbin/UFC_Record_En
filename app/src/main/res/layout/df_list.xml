@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/Ranking_NestScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Detail_ConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_inx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#6F6F6F"
+                android:textSize="20dp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/match_body"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RelativeLayout
+                android:id="@+id/match_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_inx"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/match_layout0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="20">
+
+                    <TextView
+                        android:id="@+id/tv_detail_fighter_result"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:text="Win"
+                        android:textColor="@color/colorNavIcon" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_fighter_record"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="17–6"
+
+                        android:textColor="@color/colorNavIcon" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_fighter_against"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Dan Ige"
+                        android:textColor="@color/colorNavIcon" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_fighter_match_day"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Decision (unanimous)"
+                        android:textColor="@color/colorNavIcon" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/match_layout0"
+                    android:orientation="horizontal"
+                    android:weightSum="20">
+
+                    <TextView
+                        android:id="@+id/tv_detail_fighter_match_round"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:text="5 round"
+                        android:textColor="@color/colorNavIcon" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_fighter_match_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="05:00"
+                        android:textColor="@color/colorNavIcon" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_fighter_method"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="2021-06-19"
+                        android:textColor="@color/colorNavIcon" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_fighter_event_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="7"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="UFC on ESPN:The Kor.."
+                        android:textColor="@color/colorNavIcon" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
