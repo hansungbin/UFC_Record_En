@@ -28,7 +28,6 @@ import retrofit2.Callback
 class DetailRecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailRecordBinding
     private val mApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
-    private var logTag : String? = "로그 DetailRecordActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

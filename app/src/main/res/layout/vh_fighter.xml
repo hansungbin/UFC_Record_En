@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:background="#fff"
+    android:elevation="5dp"
+    android:textColor="@android:color/tab_indicator_text">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/la_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <!-- 이미지 -->
+        <ImageView
+            android:id="@+id/iv_ufc_fighter_image"
+            android:layout_width="70dp"
+            android:layout_height="101dp"
+            android:contentDescription="@string/todo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ufc260poster"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_margin="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_ufc_fighter_image"
+            app:layout_constraintTop_toTopOf="@+id/iv_ufc_fighter_image">
+
+            <TextView
+                android:id="@+id/tv_list_fighter_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="Chan Sung Jung"
+                android:textColor="@color/black"
+                android:layout_margin="2dp"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--체급-->
+            <TextView
+                android:id="@+id/currently_fighter_division"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="2"
+                android:text="Featherweight"
+                android:textColor="#94999E"
+                android:textSize="15sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toStartOf="@+id/tv_fighter_ranking"
+                app:layout_constraintTop_toTopOf="@+id/tv_fighter_ranking" />
+
+            <!--선수 순위-->
+            <TextView
+                android:id="@+id/tv_fighter_ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/tv_list_fighter_name"
+                android:gravity="right"
+                android:text="#4"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_fighter_other_names"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="The Korean Zombie"
+                android:textColor="#94999E"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_list_fighter_name" />
+
+
+            <TextView
+                android:id="@+id/tv_fighter_nationality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="South Korean"
+                android:textColor="#94999E"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fighter_other_names" />
+
+            <TextView
+                android:id="@+id/tv_fighter_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="2"
+                android:text="23 matches\n17 wins-6 losses"
+                android:textColor="#94999E"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/currently_fighter_division" />
+
+
+            <TextView
+                android:id="@+id/tv_ufc_event_city"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:gravity="right"
+                android:maxLines="3"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fighter_ranking"
+                tools:ignore="RtlHardcoded" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+

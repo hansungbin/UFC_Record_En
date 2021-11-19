@@ -32,7 +32,6 @@ class RecordFragment : Fragment() {
     private var etSearch: EditText? = null
     private val rApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
     private var result: Record? = null
-    val logTag = "로그 RecordFragment"
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -54,7 +53,6 @@ class RecordFragment : Fragment() {
         getRecordApi(rAdapter)
 
         btnSearch!!.setOnClickListener {
-            Log.d(logTag,"onCreateView is called // btnSearch clicked")
             getRecordApi(rAdapter)
         }
 

@@ -73,8 +73,6 @@ class RankingFragment : Fragment() {
     private var wflywRankingAdapter = WflywRankingAdapter()
     private var wbantamwRankingAdapter = WbantamwRankingAdapter()
 
-    private val logTag = "로그 RankingFragment"
-
     val listStatus: MutableList<String> = ArrayList()
 
     @SuppressLint("SetTextI18n")
@@ -86,7 +84,6 @@ class RankingFragment : Fragment() {
 
         for (i in 0..12) {
             listStatus.add("Off")
-            Log.d(logTag, "onCreateView is called 000 // listStatus[$i] = ${listStatus[i]}")
         }
 
 //        var res : Resources = resources
@@ -823,8 +820,6 @@ class RankingFragment : Fragment() {
             override fun onResponse(call: Call<Ranking?>, response: Response<Ranking?>) {
 
                 ranking = response.body() as Ranking
-
-                Log.d(logTag, "onResponse is called //listStatus[0] = ${listStatus[0]}")
 
                 when {
                     listStatus[0] == "On" -> {

@@ -13,11 +13,10 @@ object HttpClient {
     //싱글턴으로 Retrofit 객체 생성.
     fun getRetrofit(): Retrofit? {
         if (retrofit == null) {
-            //Log Message 추가 (로그화면에서 "D/OkHttp"로 필터링)
+
             val interceptor = HttpLoggingInterceptor()
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
             val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
-            //Log Message 추가
 
             val builder = Retrofit.Builder()
             builder.baseUrl(baseUrl) //Url 설정

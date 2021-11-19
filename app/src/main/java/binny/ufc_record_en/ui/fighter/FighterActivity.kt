@@ -2,13 +2,13 @@ package binny.ufc_record_en.ui.fighter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,7 +27,6 @@ import retrofit2.Response
 class FighterActivity : AppCompatActivity(){
     private lateinit var binding : ActivityFighterBinding
     private val fApi : ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
-    private val logTag = "로그 FighterActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +43,6 @@ class FighterActivity : AppCompatActivity(){
         val queries = mapOf("ufc_fighter_name" to param)
         val call : Call<Fighter?>? = fApi!!.getFighterDetailData(queries)
 
-        Log.d(logTag,"onCreate is called // queries = $queries")
-
         binding.listBack.setOnClickListener {
             this.finish()
         }
@@ -55,18 +52,11 @@ class FighterActivity : AppCompatActivity(){
             override fun onResponse(call: Call<Fighter?>, response: Response<Fighter?>) {
                 val result: Fighter = response.body() as Fighter
 
-                Log.d(logTag, "onResponse: 11")
-
-
                 if(result.data!!.isNotEmpty()) {
 
                     binding.fighterConstraintLayout.visibility = View.VISIBLE
                     binding.fighterNoResultConstraintLayout.visibility = View.GONE
-
-                    Log.d(logTag, "onResponse: 22")
                     adapter.setList(result.data?.get(0)?.total_fighter_record)
-
-                    Log.d(logTag, "onResponse: 33")
                     binding.tvMpfpFighterName.text = result.data?.get(0)!!.fighter_name
                     binding.tvFighterBorn.text = result.data?.get(0)!!.fighter_born
                     binding.tvFighterOtherNames.text = result.data?.get(0)!!.fighter_other_names
@@ -104,7 +94,6 @@ class FighterActivity : AppCompatActivity(){
                     Glide.with(view.context).load(result.data?.get(0)!!.fighter_image)
                         .into(binding.ivFghterImage)
                 }else if(result.data?.size!! < 1 ) {
-                    Log.d(logTag, "onResponse: 44")
                     binding.fighterConstraintLayout.visibility = View.GONE
                     binding.fighterNoResultConstraintLayout.visibility = View.VISIBLE
                 }
