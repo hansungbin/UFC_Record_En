@@ -16,6 +16,9 @@ interface ApiInterface {
     @GET("ufc_record_select_event.php")
     fun getRecordData(@QueryMap queries: Map<String, String?>): Call<Record?>?
 
+    @GET("ufc_record_select_detail_event.php")
+    fun getRecordDetailData(@QueryMap queries: Map<String, String?>): Call<Record?>?
+
     @GET("ufc_fighter_select.php")
     fun getFighterData(@QueryMap queries: Map<String, String?>): Call<Fighter?>?
 

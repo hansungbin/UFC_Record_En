@@ -32,6 +32,7 @@ class RecordFragment : Fragment() {
     private var etSearch: EditText? = null
     private val rApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
     private var result: Record? = null
+    private lateinit var fighter : List<String>
 
     val logTag = "로그 RecordFragment"
     @SuppressLint("NotifyDataSetChanged")
@@ -133,29 +134,34 @@ class RecordFragment : Fragment() {
             holder.ufcEventPromotion.text = record.ufc_event_promotion
             showMatchCount = record.ufc_event_count?.toInt()
 
-            matchCount = record.ufc_event_result!!.size
-
+            Log.d(logTag, "onBindViewHolder: record.ufc_event_fighter = ${record.ufc_event_fighter}")
+            Log.d(logTag, "onBindViewHolder: record.ufc_event_fighter = ${record.ufc_event_name}")
+            
+            if(record.ufc_event_fighter != null) {
+                fighter = record.ufc_event_fighter!!.split(",")
+            }
+            Log.d(logTag, "onBindViewHolder: 111")
             var ufcEventWinner: String? = null
             var ufcEventLoser: String? = null
 
             var i = 0
 
             var matchCount = 0
-            if (record.ufc_event_result!!.isNotEmpty()) {
-                while (i < 3) {
+            if(record.ufc_event_fighter != null) {
+                while (matchCount < 3) {
 
-                    val winner: String? =
-                        if (record.ufc_event_result!![i].game_winner!!.length > 14) {
-                            record.ufc_event_result!![i].game_winner?.substring(0, 12) + ".."
+                    val winner: String =
+                        if (fighter[i].length > 14) {
+                            fighter[i].substring(0, 12) + ".."
                         } else {
-                            record.ufc_event_result!![i].game_winner
+                            fighter[i]
                         }
 
-                    val loser: String? =
-                        if (record.ufc_event_result!![i].game_loser!!.length > 14) {
-                            record.ufc_event_result!![i].game_loser?.substring(0, 12) + ".."
+                    val loser: String =
+                        if (fighter[i+1].length > 14) {
+                            fighter[i+1].substring(0, 12) + ".."
                         } else {
-                            record.ufc_event_result!![i].game_loser
+                            fighter[i+1]
                         }
 
                     if (ufcEventWinner == null) {
@@ -165,25 +171,25 @@ class RecordFragment : Fragment() {
                         ufcEventWinner += "\n(W)$winner"
                         ufcEventLoser += "\n(L)$loser"
                     }
-                    i++
-                    matchCount = i
+                    i += 2
+                    matchCount += 1
                 }
             }
 
-            Log.d(logTag, "onBindViewHolder: record.ufc_event_result!!.size = ${record.ufc_event_result!!.size}")
             holder.ufcEventWinner.text = ufcEventWinner
             holder.ufcEventLoser.text = ufcEventLoser
             holder.ufcEventMore.text =
-                "+ ${record.ufc_event_result!!.size - matchCount} match\nmore"
+                "+ ${fighter.size/2 - matchCount} match\nmore"
 
-            if (record.ufc_event_result!!.isEmpty()) {
+            if (fighter.isEmpty()) {
                 holder.ufcEventMore.text = "No Match"
                 holder.tvVs.visibility = View.INVISIBLE
             } else {holder.tvVs.visibility = View.VISIBLE}
 
-            Glide.with(holder.itemView.context).load(record.ufc_event_image)
-                .into(holder.ufcEventImage)
-
+            if (record.ufc_event_image != null) {
+                Glide.with(holder.itemView.context).load(record.ufc_event_image)
+                    .into(holder.ufcEventImage)
+            }
             holder.listLayout.setOnClickListener {
 
                 val intent = Intent(activity, DetailRecordActivity::class.java)

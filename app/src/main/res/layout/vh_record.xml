@@ -36,6 +36,7 @@
 
             <TextView
                 android:id="@+id/tv_ufc_event_name"
+                android:text="@string/match"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -94,6 +95,7 @@
 
             <TextView
                 android:id="@+id/currently_fighter_division"
+                android:text="@string/winner"
                 android:layout_width="105dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="5dp"
@@ -123,6 +125,7 @@
                 android:id="@+id/tv_ufc_event_loser"
                 android:layout_width="105dp"
                 android:layout_height="0dp"
+                android:text="@string/loser"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
                 android:maxLength="80"
@@ -135,6 +138,7 @@
 
             <TextView
                 android:id="@+id/tv_more_match"
+                android:text="@string/match"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"

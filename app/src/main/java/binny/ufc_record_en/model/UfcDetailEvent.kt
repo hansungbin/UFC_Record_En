@@ -2,8 +2,7 @@ package binny.ufc_record_en.model
 
 import com.google.gson.annotations.Expose
 
-// 리스트
-class UfcEvent {
+class UfcDetailEvent {
     @Expose
     var ufc_event_name: String? = null
 
@@ -20,6 +19,9 @@ class UfcEvent {
     var ufc_event_image: String? = null
 
     @Expose
+    var ufc_event_result:  List<UfcEventResult>? = null
+
+    @Expose
     var ufc_event_count: String? = null
 
     @Expose
@@ -27,7 +29,4 @@ class UfcEvent {
 
     @Expose
     var ufc_event_bonus_award: String? = null
-
-    @Expose
-    var ufc_event_fighter: String? = null
 }

@@ -6,4 +6,7 @@ class Record {
     //An annotation that indicates this member should be exposed for JSON serialization or deserialization.
     @Expose
     var data: List<UfcEvent>? = null
+
+    @Expose
+    var dataDetail: List<UfcDetailEvent>? = null
 }

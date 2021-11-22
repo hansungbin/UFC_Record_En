@@ -41,22 +41,22 @@ class DetailRecordActivity : AppCompatActivity() {
 
         val param: String? = intent.getStringExtra("ufcEventName")
         val queries = mapOf("ufc_event_search" to param)
-        val call: Call<Record?>? = mApi!!.getRecordData(queries)
+        val call: Call<Record?>? = mApi!!.getRecordDetailData(queries)
 
         call?.enqueue(object : Callback<Record?> {
             override fun onResponse(call: Call<Record?>, response: retrofit2.Response<Record?>){
                 // 응답 성공시 어댑터에 결과 전달
                 val result : Record = response.body() as Record
 
-                adapter.setList(result.data?.get(0)?.ufc_event_result)
+                adapter.setList(result.dataDetail?.get(0)?.ufc_event_result)
 
-                binding.tvMatchName.text = result.data?.get(0)!!.ufc_event_name
-                binding.tvPromotionName.text = result.data?.get(0)!!.ufc_event_promotion
-                binding.tvMatchVenue.text = result.data?.get(0)!!.ufc_event_venue
-                binding.tvMatchCity.text = result.data?.get(0)!!.ufc_event_city
-                binding.tvMatchBonus.text = result.data?.get(0)!!.ufc_event_bonus_award
+                binding.tvMatchName.text = result.dataDetail?.get(0)!!.ufc_event_name
+                binding.tvPromotionName.text = result.dataDetail?.get(0)!!.ufc_event_promotion
+                binding.tvMatchVenue.text = result.dataDetail?.get(0)!!.ufc_event_venue
+                binding.tvMatchCity.text = result.dataDetail?.get(0)!!.ufc_event_city
+                binding.tvMatchBonus.text = result.dataDetail?.get(0)!!.ufc_event_bonus_award
 
-                Glide.with(view.context).load(result.data?.get(0)!!.ufc_event_image)
+                Glide.with(view.context).load(result.dataDetail?.get(0)!!.ufc_event_image)
                     .into(binding.ivMainImage)
 
             }
