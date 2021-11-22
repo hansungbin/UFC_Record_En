@@ -1292,7 +1292,7 @@ class RankingFragment : Fragment() {
                 holder.tvWelterwNo.text = ((welterwRanking.idx!! - 1).toString())
             }
 
-            holder.tvWelterwFighterName.text = welterwFighterList[2]
+            holder.tvWelterwFighterName.text = welterwFighterList[5]
 
             holder.constraintLayoutWelterw.setOnClickListener {
                 val intent = Intent(activity, FighterActivity::class.java)
@@ -1358,7 +1358,7 @@ class RankingFragment : Fragment() {
                 holder.tvMiddlewNo.text = ((middlewRanking.idx!! - 1).toString())
             }
 
-            holder.tvMiddlewFighterName.text = middlewFighterList[2]
+            holder.tvMiddlewFighterName.text = middlewFighterList[6]
 
             holder.constraintLayoutMiddlew.setOnClickListener {
                 val intent = Intent(activity, FighterActivity::class.java)
@@ -1423,7 +1423,7 @@ class RankingFragment : Fragment() {
                 holder.tvLightheavywNo.text = ((lightheavywRanking.idx!! - 1).toString())
             }
 
-            holder.tvLightheavywFighterName.text = lightheavywFighterList[2]
+            holder.tvLightheavywFighterName.text = lightheavywFighterList[7]
 
             holder.constraintLayoutLightheavyw.setOnClickListener {
                 val intent = Intent(activity, FighterActivity::class.java)
@@ -1489,7 +1489,7 @@ class RankingFragment : Fragment() {
                 holder.tvHeavywNo.text = ((heavywRanking.idx!! - 1).toString())
             }
 
-            holder.tvHeavywFighterName.text = heavywFighterList[2]
+            holder.tvHeavywFighterName.text = heavywFighterList[8]
 
             holder.constraintLayoutHeavyw.setOnClickListener {
                 val intent = Intent(activity, FighterActivity::class.java)
@@ -1554,7 +1554,7 @@ class RankingFragment : Fragment() {
                 holder.tvWpfpNo.text = ((wpfpRanking.idx!! - 1).toString())
             }
 
-            holder.tvWpfpFighterName.text = wpfpFighterList[2]
+            holder.tvWpfpFighterName.text = wpfpFighterList[9]
 
             holder.constraintLayoutWpfp.setOnClickListener {
                 val intent = Intent(activity, FighterActivity::class.java)
@@ -1619,7 +1619,7 @@ class RankingFragment : Fragment() {
                 holder.tvWstrawwNo.text = ((wstrawwRanking.idx!! - 1).toString())
             }
 
-            holder.tvWstrawwFighterName.text = wstrawwFighterList[2]
+            holder.tvWstrawwFighterName.text = wstrawwFighterList[10]
 
             holder.constraintLayoutWstraww.setOnClickListener {
                 val intent = Intent(activity, FighterActivity::class.java)
@@ -1684,7 +1684,7 @@ class RankingFragment : Fragment() {
                 holder.tvWflywNo.text = ((wflywRanking.idx!! - 1).toString())
             }
 
-            holder.tvWflywFighterName.text = wflywFighterList[2]
+            holder.tvWflywFighterName.text = wflywFighterList[11]
 
             holder.constraintLayoutWflyw.setOnClickListener {
                 val intent = Intent(activity, FighterActivity::class.java)
@@ -1749,7 +1749,7 @@ class RankingFragment : Fragment() {
                 holder.tvWbantamwNo.text = ((wbantamwRanking.idx!! - 1).toString())
             }
 
-            holder.tvWbantamwFighterName.text = wbantamwFighterList[2]
+            holder.tvWbantamwFighterName.text = wbantamwFighterList[12]
 
             holder.constraintLayoutWbantamw.setOnClickListener {
                 val intent = Intent(activity, FighterActivity::class.java)

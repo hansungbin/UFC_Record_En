@@ -33,6 +33,7 @@ class RecordFragment : Fragment() {
     private val rApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
     private var result: Record? = null
 
+    val logTag = "로그 RecordFragment"
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -139,6 +140,7 @@ class RecordFragment : Fragment() {
 
             var i = 0
 
+            var matchCount = 0
             if (record.ufc_event_result!!.isNotEmpty()) {
                 while (i < 3) {
 
@@ -168,10 +170,11 @@ class RecordFragment : Fragment() {
                 }
             }
 
+            Log.d(logTag, "onBindViewHolder: record.ufc_event_result!!.size = ${record.ufc_event_result!!.size}")
             holder.ufcEventWinner.text = ufcEventWinner
             holder.ufcEventLoser.text = ufcEventLoser
             holder.ufcEventMore.text =
-                "+ ${record.ufc_event_result!!.size - (matchCount!!)} match\nmore"
+                "+ ${record.ufc_event_result!!.size - matchCount} match\nmore"
 
             if (record.ufc_event_result!!.isEmpty()) {
                 holder.ufcEventMore.text = "No Match"
