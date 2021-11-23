@@ -28,6 +28,7 @@ import retrofit2.Callback
 class DetailRecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailRecordBinding
     private val mApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
+    val logTag = "로그 DetailRecordActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +49,7 @@ class DetailRecordActivity : AppCompatActivity() {
                 // 응답 성공시 어댑터에 결과 전달
                 val result : Record = response.body() as Record
 
-                adapter.setList(result.dataDetail?.get(0)?.ufc_event_result)
+                Log.d(logTag, "onResponse: result.dataDetail?.get(0)?.ufc_event_result = ${result.dataDetail?.get(0)?.ufc_event_result}")
 
                 binding.tvMatchName.text = result.dataDetail?.get(0)!!.ufc_event_name
                 binding.tvPromotionName.text = result.dataDetail?.get(0)!!.ufc_event_promotion
@@ -58,6 +59,8 @@ class DetailRecordActivity : AppCompatActivity() {
 
                 Glide.with(view.context).load(result.dataDetail?.get(0)!!.ufc_event_image)
                     .into(binding.ivMainImage)
+
+                adapter.setList(result.dataDetail?.get(0)?.ufc_event_result)
 
             }
 

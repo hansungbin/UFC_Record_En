@@ -113,7 +113,6 @@ class RecordFragment : Fragment() {
             notifyDataSetChanged()
             mUfcRecord!!.addAll(ufcData!!)
             notifyDataSetChanged()
-
         }
 
         fun clear() {
@@ -133,14 +132,15 @@ class RecordFragment : Fragment() {
             holder.ufcEventCity.text = record.ufc_event_city
             holder.ufcEventPromotion.text = record.ufc_event_promotion
             showMatchCount = record.ufc_event_count?.toInt()
+            fighter = emptyList()
 
             Log.d(logTag, "onBindViewHolder: record.ufc_event_fighter = ${record.ufc_event_fighter}")
-            Log.d(logTag, "onBindViewHolder: record.ufc_event_fighter = ${record.ufc_event_name}")
-            
+            Log.d(logTag, "onBindViewHolder: record.ufc_event_name = ${record.ufc_event_name}")
+
             if(record.ufc_event_fighter != null) {
                 fighter = record.ufc_event_fighter!!.split(",")
             }
-            Log.d(logTag, "onBindViewHolder: 111")
+            Log.d(logTag, "fighter.size  = ${fighter.size}")
             var ufcEventWinner: String? = null
             var ufcEventLoser: String? = null
 
@@ -178,9 +178,9 @@ class RecordFragment : Fragment() {
 
             holder.ufcEventWinner.text = ufcEventWinner
             holder.ufcEventLoser.text = ufcEventLoser
-            holder.ufcEventMore.text =
-                "+ ${fighter.size/2 - matchCount} match\nmore"
-
+            if (fighter.isNotEmpty()) {
+                holder.ufcEventMore.text = "+ ${fighter.size / 2 - matchCount} match\nmore"
+            }
             if (fighter.isEmpty()) {
                 holder.ufcEventMore.text = "No Match"
                 holder.tvVs.visibility = View.INVISIBLE
@@ -190,6 +190,8 @@ class RecordFragment : Fragment() {
                 Glide.with(holder.itemView.context).load(record.ufc_event_image)
                     .into(holder.ufcEventImage)
             }
+
+            Log.d(logTag, "onBindViewHolder: holder.ufcEventMore.text = ${holder.ufcEventMore.text}")
             holder.listLayout.setOnClickListener {
 
                 val intent = Intent(activity, DetailRecordActivity::class.java)
