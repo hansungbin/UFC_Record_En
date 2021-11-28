@@ -115,8 +115,10 @@ class RecordFragment : Fragment() {
             notifyDataSetChanged()
         }
 
+        @SuppressLint("NotifyDataSetChanged")
         fun clear() {
             val size: Int = mUfcRecord!!.size
+            notifyDataSetChanged()
             mUfcRecord!!.clear()
             notifyItemRangeRemoved(0, size)
         }
@@ -146,8 +148,9 @@ class RecordFragment : Fragment() {
 
             var i = 0
 
+            Log.d(logTag, "onBindViewHolder: record.ufc_event_fighter = ${record.ufc_event_fighter}")
             var matchCount = 0
-            if(record.ufc_event_fighter != null) {
+            if(!(record.ufc_event_fighter == null || record.ufc_event_fighter == "Canceled")) {
                 while (matchCount < 3) {
 
                     val winner: String =
@@ -174,31 +177,35 @@ class RecordFragment : Fragment() {
                     i += 2
                     matchCount += 1
                 }
+                holder.ufcEventWinner.text = ufcEventWinner
+                holder.ufcEventLoser.text = ufcEventLoser
+
+                holder.listLayout.setOnClickListener {
+
+                    val intent = Intent(activity, DetailRecordActivity::class.java)
+                    intent.putExtra("ufcEventName", holder.ufcEventName.text)
+                    startActivity(intent)
+                }
+
+                if (fighter.isNotEmpty()) {
+                    holder.ufcEventMore.text = "+ ${fighter.size / 2 - matchCount} match\nmore"
+                }
+                if (fighter.isEmpty()) {
+                    holder.ufcEventMore.text = "No Match"
+                    holder.tvVs.visibility = View.INVISIBLE
+                } else {holder.tvVs.visibility = View.VISIBLE}
+            } else {
+                holder.conMatchPreview.visibility = View.GONE
+                holder.matchCancel.visibility = View.VISIBLE
             }
 
-            holder.ufcEventWinner.text = ufcEventWinner
-            holder.ufcEventLoser.text = ufcEventLoser
-            if (fighter.isNotEmpty()) {
-                holder.ufcEventMore.text = "+ ${fighter.size / 2 - matchCount} match\nmore"
-            }
-            if (fighter.isEmpty()) {
-                holder.ufcEventMore.text = "No Match"
-                holder.tvVs.visibility = View.INVISIBLE
-            } else {holder.tvVs.visibility = View.VISIBLE}
-
-            if (record.ufc_event_image != null) {
+            if (!(record.ufc_event_image == null || record.ufc_event_image == "Canceled")) {
                 Glide.with(holder.itemView.context).load(record.ufc_event_image)
                     .into(holder.ufcEventImage)
+            }else {
+//                holder.ufcEventImage.layoutParams.height = ConstraintLayout.LayoutParams.WRAP_CONTENT
+//                holder.ufcEventImage.layoutParams.height = 80
             }
-
-            Log.d(logTag, "onBindViewHolder: holder.ufcEventMore.text = ${holder.ufcEventMore.text}")
-            holder.listLayout.setOnClickListener {
-
-                val intent = Intent(activity, DetailRecordActivity::class.java)
-                intent.putExtra("ufcEventName", holder.ufcEventName.text)
-                startActivity(intent)
-            }
-
         }
 
         override fun getItemCount(): Int {
@@ -217,6 +224,8 @@ class RecordFragment : Fragment() {
             var ufcEventMore: TextView = itemView.findViewById(R.id.tv_more_match)
             var tvVs: TextView = itemView.findViewById(R.id.tv_vs)
             var listLayout: ConstraintLayout = itemView.findViewById(R.id.la_list)
+            var conMatchPreview: ConstraintLayout = itemView.findViewById(R.id.constraintlayout_match_preview)
+            var matchCancel: TextView = itemView.findViewById(R.id.tv_match_cancel)
         }
     }
 }
