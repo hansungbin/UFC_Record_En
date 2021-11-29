@@ -43,7 +43,7 @@ class FighterActivity : AppCompatActivity(){
         val queries = mapOf("ufc_fighter_name" to param)
         val call : Call<Fighter?>? = fApi!!.getFighterDetailData(queries)
 
-        binding.listBack.setOnClickListener {
+        binding.btnFighterListBack.setOnClickListener {
             this.finish()
         }
 

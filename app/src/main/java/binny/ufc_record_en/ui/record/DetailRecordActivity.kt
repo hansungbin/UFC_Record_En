@@ -106,32 +106,28 @@ class DetailRecordActivity : AppCompatActivity() {
             }
 
             holder.gNumber.text = ((position+1).toString())
-            holder.gClass.text = detailRecord.game_class.toString()
-            holder.winner.text = detailRecord.game_winner.toString()
-            holder.loser.text = detailRecord.game_loser.toString()
-            holder.method.text = detailRecord.game_method.toString()
-            holder.round.text = detailRecord.game_round.toString() + " Round"
-            holder.matchTime.text = detailRecord.game_match_time.toString().substring(3)
 
-            holder.winner.setOnClickListener { v->
-                val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
-                var searchName = holder.winner.text
-                searchName = searchName.replace("\\(c\\)".toRegex(),"")
-                intent.putExtra("fighterName", searchName)
-                startActivity(intent)
+            holder.gClass.text = detailRecord.game_class.toString() + "\n"+ detailRecord.game_method.toString()
+
+            if (detailRecord.game_winner.toString().length > 15) {
+                holder.winner.text =
+                    detailRecord.game_winner!!.substring(0, 13) + ".." + "\n( " + detailRecord.game_round.toString() + " Round )"
+            } else {
+                holder.winner.text =
+                    detailRecord.game_winner.toString() + "\n(" + detailRecord.game_round.toString() + " Round )"
             }
 
-            holder.round.setOnClickListener { v->
-                val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
-                var searchName = holder.winner.text
-                searchName = searchName.replace("\\(c\\)".toRegex(),"")
-                intent.putExtra("fighterName", searchName)
-                startActivity(intent)
+            if (detailRecord.game_loser.toString().length > 15) {
+                holder.loser.text =
+                    detailRecord.game_loser!!.substring(0, 13) + ".." + "\n" + detailRecord.game_match_time.toString().substring(3)
+            } else {
+                holder.loser.text =
+                    detailRecord.game_loser.toString() + "\n" + detailRecord.game_match_time.toString().substring(3)
             }
 
-            holder.matchTime.setOnClickListener { v->
+            holder.winner.setOnClickListener {
                 val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
-                var searchName = holder.loser.text
+                var searchName = holder.winner.text
                 searchName = searchName.replace("\\(c\\)".toRegex(),"")
                 intent.putExtra("fighterName", searchName)
                 startActivity(intent)
@@ -161,14 +157,11 @@ class DetailRecordActivity : AppCompatActivity() {
         inner class DRItem(drRecordBinding: DrRecordBinding) : RecyclerView.ViewHolder(drRecordBinding.root) {
 
             // 경기 결과에 관한 목록들
-            var gNumber : TextView = drRecordBinding.Gnumber
+            var gNumber : TextView = drRecordBinding.tvGameNumber
             var matchKind : TextView = drRecordBinding.matchKind
             var gClass : TextView = drRecordBinding.Gclass
             var winner : TextView = drRecordBinding.winner
             var loser : TextView = drRecordBinding.loser
-            var method : TextView = drRecordBinding.method
-            var round : TextView = drRecordBinding.round
-            var matchTime : TextView = drRecordBinding.matchTime
             var matchKindLayout : LinearLayout = drRecordBinding.matchKindLayout
             var rowLayout : RelativeLayout = drRecordBinding.row
 

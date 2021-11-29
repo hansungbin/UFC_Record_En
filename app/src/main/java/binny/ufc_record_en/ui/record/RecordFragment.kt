@@ -20,6 +20,7 @@ import binny.ufc_record_en.model.Record
 import binny.ufc_record_en.model.UfcEvent
 import binny.ufc_record_en.retrofit.ApiInterface
 import binny.ufc_record_en.retrofit.HttpClient
+import binny.ufc_record_en.ui.fighter.FighterActivity
 import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,6 +33,10 @@ class RecordFragment : Fragment() {
     private var etSearch: EditText? = null
     private val rApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
     private var result: Record? = null
+    private var noResultLayout : ConstraintLayout? = null
+    private var recordListLayout : ConstraintLayout? = null
+    private var btnFighterListBack : Button? = null
+
     private lateinit var fighter : List<String>
 
     val logTag = "로그 RecordFragment"
@@ -51,12 +56,23 @@ class RecordFragment : Fragment() {
         rRecyclerView?.adapter = rAdapter
         etSearch = root.findViewById(R.id.et_record_search)
         btnSearch = root.findViewById(R.id.btn_record_search)
+        noResultLayout = root.findViewById(R.id.record_no_result_constraintLayout)
+        recordListLayout = root.findViewById(R.id.record_list_constraintLayout)
+        btnFighterListBack = root.findViewById(R.id.btn_fighter_list_back)
+
+
 //        searchFloatingButton = root.findViewById(R.id.fab)
         getRecordApi(rAdapter)
 
         btnSearch!!.setOnClickListener {
             getRecordApi(rAdapter)
         }
+
+//        if (this.noResultLayout.visibility == View.VISIBLE ) {
+//            btnFighterListBack!!.setOnClickListener {
+//                Log.d(logTag, "onCreateView is called 11")
+//            }
+//        }
 
         return root
     }
@@ -73,12 +89,21 @@ class RecordFragment : Fragment() {
                 call: Call<Record?>,
                 response: retrofit2.Response<Record?>
             ) {
-                //응답 성공시 어댑터에 결과 전달
-                result = response.body() as Record
 
-                rAdapter.clear()
+                if (response.body()!!.data!!.isNotEmpty()) {
+                    noResultLayout!!.visibility = View.GONE
+                    recordListLayout!!.visibility = View.VISIBLE
+                    //응답 성공시 어댑터에 결과 전달
+                    result = response.body() as Record
 
-                rAdapter.setList(result!!.data)
+                    rAdapter.clear()
+
+                    rAdapter.setList(result!!.data)
+                } else {
+                    noResultLayout!!.visibility = View.VISIBLE
+                    recordListLayout!!.visibility = View.GONE
+                }
+
             }
 
             override fun onFailure(call: Call<Record?>, t: Throwable) {
