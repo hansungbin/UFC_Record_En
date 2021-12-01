@@ -146,7 +146,7 @@ class FighterListFragment : Fragment() {
         inner class FvhItem(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var ufcFighterImage: ImageView = itemView.findViewById(R.id.iv_ufc_fighter_image)
             var fighterName: TextView = itemView.findViewById(R.id.tv_list_fighter_name)
-            var fighterRanking: TextView = itemView.findViewById(R.id.tv_fighter_ranking)
+            var fighterRanking: TextView = itemView.findViewById(R.id.tv_event_date)
             var fighterNationality: TextView = itemView.findViewById(R.id.tv_fighter_nationality)
             var fighterRecord: TextView = itemView.findViewById(R.id.tv_fighter_record)
             var fighterDivision: TextView = itemView.findViewById(R.id.currently_fighter_division)

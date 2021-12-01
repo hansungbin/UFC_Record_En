@@ -86,10 +86,6 @@ class RankingFragment : Fragment() {
             listStatus.add("Off")
         }
 
-//        var res : Resources = resources
-//        https://stackoverflow.com/questions/48901656/how-to-make-arraylist-by-type-like-button-r-id-buttonid/48901976
-//        getActivity().getPackageName()
-
         val root = inflater.inflate(R.layout.fragment_ranking, container, false)
 
         mpfpRankingRecyclerView = root.findViewById(R.id.mpfp_ranking_RecyclerView)
@@ -169,7 +165,7 @@ class RankingFragment : Fragment() {
 
         btnRanking0!!.setOnClickListener {
             if (listStatus[0] == "Off") {
-                initListStatus()
+                initList(0)
                 listStatus[0] = "On"
                 btnRanking0!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -188,7 +184,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[0] == "On") {
-                initListStatus()
+                initList(0)
                 listStatus[0] = "Off"
                 btnRanking0!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -211,7 +207,7 @@ class RankingFragment : Fragment() {
 
         btnRanking1!!.setOnClickListener {
             if (listStatus[1] == "Off") {
-                initListStatus()
+                initList(1)
                 listStatus[1] = "On"
                 btnRanking1!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -230,7 +226,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[1] == "On") {
-                initListStatus()
+                initList(1)
                 listStatus[1] = "Off"
                 btnRanking1!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -253,7 +249,7 @@ class RankingFragment : Fragment() {
 
         btnRanking2!!.setOnClickListener {
             if (listStatus[2] == "Off") {
-                initListStatus()
+                initList(2)
                 listStatus[2] = "On"
                 btnRanking2!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -272,7 +268,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[2] == "On") {
-                initListStatus()
+                initList(2)
                 listStatus[2] = "Off"
                 btnRanking2!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -295,7 +291,7 @@ class RankingFragment : Fragment() {
 
         btnRanking3!!.setOnClickListener {
             if (listStatus[3] == "Off") {
-                initListStatus()
+                initList(3)
                 listStatus[3] = "On"
                 btnRanking3!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -314,7 +310,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[3] == "On") {
-                initListStatus()
+                initList(3)
                 listStatus[3] = "Off"
                 btnRanking3!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -337,7 +333,7 @@ class RankingFragment : Fragment() {
 
         btnRanking4!!.setOnClickListener {
             if (listStatus[4] == "Off") {
-                initListStatus()
+                initList(4)
                 listStatus[4] = "On"
                 btnRanking4!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -356,7 +352,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[4] == "On") {
-                initListStatus()
+                initList(4)
                 listStatus[4] = "Off"
                 btnRanking4!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -379,7 +375,7 @@ class RankingFragment : Fragment() {
 
         btnRanking5!!.setOnClickListener {
             if (listStatus[5] == "Off") {
-                initListStatus()
+                initList(5)
                 listStatus[5] = "On"
                 btnRanking5!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -398,49 +394,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[5] == "On") {
-                initListStatus()
-                listStatus[5] = "Off"
-                btnRanking5!!.text = getString(R.string.more_information)
-                GetRankingApi(
-                    mpfpRankingAdapter,
-                    flywRankingAdapter,
-                    bantamwRankingAdapter,
-                    featherwRankingAdapter,
-                    lightwRankingAdapter,
-                    welterwRankingAdapter,
-                    middlewRankingAdapter,
-                    lightheavywRankingAdapter,
-                    heavywRankingAdapter,
-                    wpfpRankingAdapter,
-                    wstrawwRankingAdapter,
-                    wflywRankingAdapter,
-                    wbantamwRankingAdapter
-                )
-            }
-        }
-
-        btnRanking5!!.setOnClickListener {
-            if (listStatus[5] == "Off") {
-                initListStatus()
-                listStatus[5] = "On"
-                btnRanking5!!.text = getString(R.string.close)
-                GetRankingApi(
-                    mpfpRankingAdapter,
-                    flywRankingAdapter,
-                    bantamwRankingAdapter,
-                    featherwRankingAdapter,
-                    lightwRankingAdapter,
-                    welterwRankingAdapter,
-                    middlewRankingAdapter,
-                    lightheavywRankingAdapter,
-                    heavywRankingAdapter,
-                    wpfpRankingAdapter,
-                    wstrawwRankingAdapter,
-                    wflywRankingAdapter,
-                    wbantamwRankingAdapter
-                )
-            } else if (listStatus[5] == "On") {
-                initListStatus()
+                initList(5)
                 listStatus[5] = "Off"
                 btnRanking5!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -463,7 +417,7 @@ class RankingFragment : Fragment() {
 
         btnRanking6!!.setOnClickListener {
             if (listStatus[6] == "Off") {
-                initListStatus()
+                initList(6)
                 listStatus[6] = "On"
                 btnRanking6!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -482,7 +436,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[6] == "On") {
-                initListStatus()
+                initList(6)
                 listStatus[6] = "Off"
                 btnRanking6!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -505,7 +459,7 @@ class RankingFragment : Fragment() {
 
         btnRanking7!!.setOnClickListener {
             if (listStatus[7] == "Off") {
-                initListStatus()
+                initList(7)
                 listStatus[7] = "On"
                 btnRanking7!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -524,7 +478,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[7] == "On") {
-                initListStatus()
+                initList(7)
                 listStatus[7] = "Off"
                 btnRanking7!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -547,7 +501,7 @@ class RankingFragment : Fragment() {
 
         btnRanking8!!.setOnClickListener {
             if (listStatus[8] == "Off") {
-                initListStatus()
+                initList(8)
                 listStatus[8] = "On"
                 btnRanking8!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -566,7 +520,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[8] == "On") {
-                initListStatus()
+                initList(8)
                 listStatus[8] = "Off"
                 btnRanking8!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -589,7 +543,7 @@ class RankingFragment : Fragment() {
 
         btnRanking9!!.setOnClickListener {
             if (listStatus[9] == "Off") {
-                initListStatus()
+                initList(9)
                 listStatus[9] = "On"
                 btnRanking9!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -608,7 +562,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[9] == "On") {
-                initListStatus()
+                initList(9)
                 listStatus[9] = "Off"
                 btnRanking9!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -631,7 +585,7 @@ class RankingFragment : Fragment() {
 
         btnRanking10!!.setOnClickListener {
             if (listStatus[10] == "Off") {
-                initListStatus()
+                initList(10)
                 listStatus[10] = "On"
                 btnRanking10!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -650,7 +604,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[10] == "On") {
-                initListStatus()
+                initList(10)
                 listStatus[10] = "Off"
                 btnRanking10!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -673,7 +627,7 @@ class RankingFragment : Fragment() {
 
         btnRanking11!!.setOnClickListener {
             if (listStatus[11] == "Off") {
-                initListStatus()
+                initList(11)
                 listStatus[11] = "On"
                 btnRanking11!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -692,7 +646,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[11] == "On") {
-                initListStatus()
+                initList(11)
                 listStatus[11] = "Off"
                 btnRanking11!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -715,7 +669,7 @@ class RankingFragment : Fragment() {
 
         btnRanking12!!.setOnClickListener {
             if (listStatus[12] == "Off") {
-                initListStatus()
+                initList(12)
                 listStatus[12] = "On"
                 btnRanking12!!.text = getString(R.string.close)
                 GetRankingApi(
@@ -734,7 +688,7 @@ class RankingFragment : Fragment() {
                     wbantamwRankingAdapter
                 )
             } else if (listStatus[12] == "On") {
-                initListStatus()
+                initList(12)
                 listStatus[12] = "Off"
                 btnRanking12!!.text = getString(R.string.more_information)
                 GetRankingApi(
@@ -758,10 +712,63 @@ class RankingFragment : Fragment() {
         return root
     }
 
-    fun initListStatus() {
+    private fun initList(i : Int) {
         listStatus.clear()
-        for (i in 0..12) {
-            listStatus.add("Off")
+        for (j in 0..12) {
+            if(j != i) {
+                listStatus.add("Off")
+            }
+        }
+        if (i != 0) {
+            btnRanking0!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 1) {
+            btnRanking1!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 2) {
+            btnRanking2!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 3) {
+            btnRanking3!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 4) {
+            btnRanking4!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 5) {
+            btnRanking5!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 6) {
+            btnRanking6!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 7) {
+            btnRanking7!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 8) {
+            btnRanking8!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 9) {
+            btnRanking9!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 10) {
+            btnRanking10!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 11) {
+            btnRanking11!!.text = getString(R.string.more_information)
+        }
+
+        if(i != 12) {
+            btnRanking12!!.text = getString(R.string.more_information)
         }
     }
 
@@ -812,9 +819,7 @@ class RankingFragment : Fragment() {
         wbantamwRankingAdapter: WbantamwRankingAdapter
     ) {
 
-        val queries = mapOf("ufc_fighter_name" to etRankingSearch!!.text.toString())
-        val call: Call<Ranking?>? = rApi!!.getRankingData(queries)
-
+        val call: Call<Ranking?>? = rApi!!.getRankingData()
         call?.enqueue(object : Callback<Ranking?> {
 
             override fun onResponse(call: Call<Ranking?>, response: Response<Ranking?>) {

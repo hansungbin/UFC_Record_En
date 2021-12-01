@@ -26,5 +26,5 @@ interface ApiInterface {
     fun getFighterDetailData(@QueryMap queries: Map<String, String?>): Call<Fighter?>?
 
     @GET("ufc_ranking_select.php")
-    fun getRankingData(@QueryMap queries: Map<String, String?>): Call<Ranking?>?
+    fun getRankingData(): Call<Ranking?>?
 }

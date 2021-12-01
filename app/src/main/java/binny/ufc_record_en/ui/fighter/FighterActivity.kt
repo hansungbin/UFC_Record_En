@@ -56,40 +56,60 @@ class FighterActivity : AppCompatActivity(){
 
                     binding.fighterConstraintLayout.visibility = View.VISIBLE
                     binding.fighterNoResultConstraintLayout.visibility = View.GONE
+
                     adapter.setList(result.data?.get(0)?.total_fighter_record)
-                    binding.tvMpfpFighterName.text = result.data?.get(0)!!.fighter_name
-                    binding.tvFighterBorn.text = result.data?.get(0)!!.fighter_born
-                    binding.tvFighterOtherNames.text = result.data?.get(0)!!.fighter_other_names
+
+                    if(result.data?.get(0)!!.fighter_name!!.isNotEmpty()) {
+                        binding.tvMpfpFighterName.text = result.data?.get(0)!!.fighter_name
+                    }else {binding.tvMpfpFighterName.visibility = View.GONE}
+
+                    if(result.data?.get(0)!!.fighter_born!!.isNotEmpty()) {
+                        binding.tvFighterBorn.text = result.data?.get(0)!!.fighter_born
+                    }else {binding.tvFighterBorn.visibility = View.GONE}
+
+                    if(result.data?.get(0)!!.fighter_other_names!!.isNotEmpty()) {
+                        binding.tvFighterOtherNames.text = result.data?.get(0)!!.fighter_other_names
+                    }else {binding.tvFighterOtherNames.visibility = View.GONE}
+
+                    if(result.data?.get(0)!!.fighter_residence!!.isNotEmpty()) {
+                        binding.tvFighterResidence.text = result.data?.get(0)!!.fighter_residence
+                    }else {binding.tvFighterResidence.visibility = View.GONE}
+
+                    if(result.data?.get(0)!!.fighter_nationality!!.isNotEmpty()) {
+                        binding.tvFighterNationality.text = result.data?.get(0)!!.fighter_nationality
+                    }else {binding.tvFighterNationality.visibility = View.GONE}
+
+                    if(result.data?.get(0)!!.fighter_division!!.isNotEmpty()) {
+                        binding.tvFighterDivision.text = result.data?.get(0)!!.fighter_division
+                    }else {binding.tvFighterDivision.visibility = View.GONE}
+
                     binding.tvFighterResidence.text = result.data?.get(0)!!.fighter_residence
-                    binding.tvFighterNationality.text = result.data?.get(0)!!.fighter_nationality
-                    binding.tvFighterDivision.text = result.data?.get(0)!!.fighter_division
-                    binding.tvFighterResidence.text = result.data?.get(0)!!.fighter_residence
-                    binding.tvWKnockout.text = result.data?.get(0)!!.w_knockout.toString()
-                    binding.tvWSubmission.text = result.data?.get(0)!!.w_submission.toString()
-                    binding.tvWDecision.text = result.data?.get(0)!!.w_decision.toString()
-                    binding.tvLKnockout.text = result.data?.get(0)!!.l_knockout.toString()
-                    binding.tvLSubmission.text = result.data?.get(0)!!.l_submission.toString()
-                    binding.tvLDecision.text = result.data?.get(0)!!.l_decision.toString()
-                    binding.tvTotalMatch.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
-                            result.data?.get(0)!!.w_decision!! + result.data?.get(0)!!.l_knockout!! +
-                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
-                    binding.tvTotalWin.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
-                            result.data?.get(0)!!.w_decision!!).toString()
-                    binding.tvTotalLose.text = (result.data?.get(0)!!.l_knockout!! +
-                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
-
-
-                    if ((binding.tvTotalMatch.text as String).toInt() > 1){
-                        binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Matches"
-                    }else { binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Match" }
-
-                    if ((binding.tvTotalWin.text as String).toInt() > 1){
-                        binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Wins"
-                    }else { binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Win" }
-
-                    if ((binding.tvTotalLose.text as String).toInt() > 1){
-                        binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Losses"
-                    }else { binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Lose" }
+//                    binding.tvWKnockout.text = result.data?.get(0)!!.w_knockout.toString()
+//                    binding.tvWSubmission.text = result.data?.get(0)!!.w_submission.toString()
+//                    binding.tvWDecision.text = result.data?.get(0)!!.w_decision.toString()
+//                    binding.tvLKnockout.text = result.data?.get(0)!!.l_knockout.toString()
+//                    binding.tvLSubmission.text = result.data?.get(0)!!.l_submission.toString()
+//                    binding.tvLDecision.text = result.data?.get(0)!!.l_decision.toString()
+//                    binding.tvTotalMatch.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
+//                            result.data?.get(0)!!.w_decision!! + result.data?.get(0)!!.l_knockout!! +
+//                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
+//                    binding.tvTotalWin.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
+//                            result.data?.get(0)!!.w_decision!!).toString()
+//                    binding.tvTotalLose.text = (result.data?.get(0)!!.l_knockout!! +
+//                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
+//
+//
+//                    if ((binding.tvTotalMatch.text as String).toInt() > 1){
+//                        binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Matches"
+//                    }else { binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Match" }
+//
+//                    if ((binding.tvTotalWin.text as String).toInt() > 1){
+//                        binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Wins"
+//                    }else { binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Win" }
+//
+//                    if ((binding.tvTotalLose.text as String).toInt() > 1){
+//                        binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Losses"
+//                    }else { binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Lose" }
 
                     Glide.with(view.context).load(result.data?.get(0)!!.fighter_image)
                         .into(binding.ivFghterImage)

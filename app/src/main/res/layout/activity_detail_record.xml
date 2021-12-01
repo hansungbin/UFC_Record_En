@@ -2,9 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimaryDark"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:background="@color/colorPrimaryDark"
         android:textColor="@android:color/tab_indicator_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:context=".ui.record.DetailRecordActivity" >
+        tools:context=".ui.record.DetailRecordActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -119,9 +119,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:scrollbars="vertical"
                 android:nestedScrollingEnabled="false"
                 android:overScrollMode="never"
+                android:scrollbars="vertical"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -166,8 +166,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
 
-            android:textColor="@color/colorNavIcon"
             android:text="The following fighters received $50,000 bonuses."
+            android:textColor="@color/colorNavIcon"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

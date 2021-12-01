@@ -20,7 +20,6 @@ import binny.ufc_record_en.model.Record
 import binny.ufc_record_en.model.UfcEvent
 import binny.ufc_record_en.retrofit.ApiInterface
 import binny.ufc_record_en.retrofit.HttpClient
-import binny.ufc_record_en.ui.fighter.FighterActivity
 import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
@@ -241,7 +240,7 @@ class RecordFragment : Fragment() {
         inner class RvhItem(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var ufcEventName: TextView = itemView.findViewById(R.id.tv_ufc_event_name)
             var ufcEventImage: ImageView = itemView.findViewById(R.id.iv_ufc_poster_image)
-            var ufcEventDate: TextView = itemView.findViewById(R.id.tv_fighter_ranking)
+            var ufcEventDate: TextView = itemView.findViewById(R.id.tv_event_date)
             var ufcEventCity: TextView = itemView.findViewById(R.id.tv_ufc_event_city)
             var ufcEventPromotion: TextView = itemView.findViewById(R.id.tv_ufc_Event_Promotion)
             var ufcEventWinner: TextView = itemView.findViewById(R.id.currently_fighter_division)
