@@ -160,9 +160,6 @@ class RecordFragment : Fragment() {
             showMatchCount = record.ufc_event_count?.toInt()
             fighter = emptyList()
 
-            Log.d(logTag, "onBindViewHolder: record.ufc_event_fighter = ${record.ufc_event_fighter}")
-            Log.d(logTag, "onBindViewHolder: record.ufc_event_name = ${record.ufc_event_name}")
-
             if(record.ufc_event_fighter != null) {
                 fighter = record.ufc_event_fighter!!.split(",")
             }
