@@ -61,16 +61,13 @@
                 android:layout_width="100dp"
                 android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="3dp"
-                android:layout_marginBottom="2dp"
                 android:layout_toEndOf="@+id/tv_ufc_event_name"
                 android:gravity="right"
                 android:maxLines="1"
                 android:text="ranking"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_ufc_Event_Promotion"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_ufc_event_city"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -108,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cancelMatch"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold|italic"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
