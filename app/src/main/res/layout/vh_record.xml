@@ -51,25 +51,24 @@
                 android:textSize="16sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/tv_ufc_Event_Promotion"
-                app:layout_constraintEnd_toStartOf="@+id/tv_fighter_ranking"
+                app:layout_constraintEnd_toStartOf="@+id/tv_ufc_event_date"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!--경기 일자-->
             <TextView
-                android:id="@+id/tv_fighter_ranking"
+                android:id="@+id/tv_ufc_event_date"
                 android:layout_width="100dp"
                 android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="3dp"
-                android:layout_marginBottom="2dp"
                 android:layout_toEndOf="@+id/tv_ufc_event_name"
                 android:gravity="right"
                 android:maxLines="1"
-                android:text="ranking"
+                android:text="2021_01_01"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_ufc_Event_Promotion"
+                app:layout_constraintBottom_toTopOf="@+id/tv_ufc_event_city"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,30 +76,31 @@
                 android:id="@+id/tv_ufc_Event_Promotion"
                 android:layout_width="250dp"
                 android:layout_height="18dp"
-                android:layout_marginTop="-2dp"
+                android:layout_marginTop="-3dp"
                 android:gravity="left"
                 android:maxLines="2"
                 android:text="Promotion"
                 android:textColor="#94999E"
                 android:textSize="13sp"
                 android:textStyle="italic"
-                app:layout_constraintBottom_toTopOf="@+id/tv_ufc_event_city"
+                app:layout_constraintBottom_toTopOf="@+id/constraintlayout_match_preview"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_ufc_event_name" />
 
             <TextView
                 android:id="@+id/tv_ufc_event_city"
                 android:layout_width="120dp"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="3dp"
                 android:gravity="right"
-                android:maxLines="3"
+                android:maxLines="2"
                 android:text="city"
                 android:textColor="@color/black"
                 android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintlayout_match_preview"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fighter_ranking"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ufc_event_date"
                 tools:ignore="RtlHardcoded" />
 
             <TextView
@@ -119,9 +119,9 @@
                 android:id="@+id/constraintlayout_match_preview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="3dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/tv_ufc_event_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_ufc_Event_Promotion">
 
@@ -172,6 +172,7 @@
                     android:id="@+id/tv_more_match"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="5dp"
                     android:background="#07000000"
                     android:gravity="right"

@@ -160,6 +160,9 @@ class RecordFragment : Fragment() {
             showMatchCount = record.ufc_event_count?.toInt()
             fighter = emptyList()
 
+            Log.d(logTag, "onBindViewHolder: record.ufc_event_fighter = ${record.ufc_event_fighter}")
+            Log.d(logTag, "onBindViewHolder: record.ufc_event_date = ${record.ufc_event_date}")
+
             if(record.ufc_event_fighter != null) {
                 fighter = record.ufc_event_fighter!!.split(",")
             }
@@ -237,7 +240,7 @@ class RecordFragment : Fragment() {
         inner class RvhItem(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var ufcEventName: TextView = itemView.findViewById(R.id.tv_ufc_event_name)
             var ufcEventImage: ImageView = itemView.findViewById(R.id.iv_ufc_poster_image)
-            var ufcEventDate: TextView = itemView.findViewById(R.id.tv_event_date)
+            var ufcEventDate: TextView = itemView.findViewById(R.id.tv_ufc_event_date)
             var ufcEventCity: TextView = itemView.findViewById(R.id.tv_ufc_event_city)
             var ufcEventPromotion: TextView = itemView.findViewById(R.id.tv_ufc_Event_Promotion)
             var ufcEventWinner: TextView = itemView.findViewById(R.id.currently_fighter_division)

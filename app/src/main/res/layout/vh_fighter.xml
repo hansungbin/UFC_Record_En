@@ -41,12 +41,13 @@
                 android:id="@+id/tv_list_fighter_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="2dp"
                 android:gravity="center_vertical"
                 android:text="Chan Sung Jung"
                 android:textColor="@color/black"
-                android:layout_margin="2dp"
                 android:textSize="18sp"
                 android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/tv_fighter_other_names"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,23 +62,25 @@
                 android:textColor="#94999E"
                 android:textSize="15sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintEnd_toStartOf="@+id/tv_event_date"
-                app:layout_constraintTop_toTopOf="@+id/tv_event_date" />
-
-            <!--선수 순위-->
-            <TextView
-                android:id="@+id/tv_event_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/tv_list_fighter_name"
-                android:gravity="right"
-                android:text="#4"
-                android:maxLines="1"
-                android:textColor="@color/black"
-                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_fighter_record"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+<!--            &lt;!&ndash;선수 순위&ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/tv_record_event_date"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_toEndOf="@+id/tv_list_fighter_name"-->
+<!--                android:gravity="right"-->
+<!--                android:maxLines="1"-->
+<!--                android:text="#4"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="15sp"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/currently_fighter_division"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
             <TextView
                 android:id="@+id/tv_fighter_other_names"
@@ -87,6 +90,7 @@
                 android:text="The Korean Zombie"
                 android:textColor="#94999E"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_fighter_nationality"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_list_fighter_name" />
 
@@ -99,6 +103,7 @@
                 android:text="South Korean"
                 android:textColor="#94999E"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_fighter_other_names" />
 
@@ -111,6 +116,7 @@
                 android:text="23 matches\n17 wins-6 losses"
                 android:textColor="#94999E"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_ufc_event_city"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/currently_fighter_division" />
 
@@ -120,12 +126,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
+                android:layout_marginBottom="2dp"
                 android:gravity="right"
-                android:maxLines="3"
+                android:maxLines="2"
+                android:text="City"
                 android:textColor="@color/black"
                 android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_event_date"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fighter_record"
                 tools:ignore="RtlHardcoded" />
 
 

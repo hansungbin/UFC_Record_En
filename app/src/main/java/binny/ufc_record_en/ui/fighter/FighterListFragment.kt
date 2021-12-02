@@ -112,9 +112,9 @@ class FighterListFragment : Fragment() {
 
             holder.fighterName.text = fighter.fighter_name.toString()
             if (fighter.fighter_ranking == "Champion") {
-                holder.fighterRanking.text = " (C)"
+//                holder.fighterRanking.text = " (C)"
             } else {
-                holder.fighterRanking.text = " (# "+fighter.fighter_ranking.toString()+")"
+//                holder.fighterRanking.text = " (# "+fighter.fighter_ranking.toString()+")"
             }
 
             holder.fighterNationality.text = fighter.fighter_nationality.toString()
@@ -146,7 +146,7 @@ class FighterListFragment : Fragment() {
         inner class FvhItem(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var ufcFighterImage: ImageView = itemView.findViewById(R.id.iv_ufc_fighter_image)
             var fighterName: TextView = itemView.findViewById(R.id.tv_list_fighter_name)
-            var fighterRanking: TextView = itemView.findViewById(R.id.tv_event_date)
+//            var fighterRanking: TextView = itemView.findViewById(R.id.tv_record_event_date)
             var fighterNationality: TextView = itemView.findViewById(R.id.tv_fighter_nationality)
             var fighterRecord: TextView = itemView.findViewById(R.id.tv_fighter_record)
             var fighterDivision: TextView = itemView.findViewById(R.id.currently_fighter_division)
