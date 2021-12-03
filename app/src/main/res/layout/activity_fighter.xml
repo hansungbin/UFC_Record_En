@@ -444,7 +444,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="20">
+                            android:weightSum="21">
 
                             <TextView
                                 android:id="@+id/tv_list_detail_fighter_result"
@@ -468,7 +468,7 @@
                                 android:id="@+id/tv_list_detail_fighter_against"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="6"
+                                android:layout_weight="7"
                                 android:gravity="center"
                                 android:text="opponent \nmethod"
                                 android:textColor="@color/colorNavIcon" />

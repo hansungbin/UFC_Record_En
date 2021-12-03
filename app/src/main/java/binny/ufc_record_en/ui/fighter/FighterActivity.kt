@@ -1,6 +1,7 @@
 package binny.ufc_record_en.ui.fighter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,8 +27,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class FighterActivity : AppCompatActivity(){
-    private lateinit var binding : ActivityFighterBinding
-    private val fApi : ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
+
+    private lateinit var binding: ActivityFighterBinding
+    private val fApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,32 +87,31 @@ class FighterActivity : AppCompatActivity(){
                     }else {binding.tvFighterDivision.visibility = View.GONE}
 
                     binding.tvFighterResidence.text = result.data?.get(0)!!.fighter_residence
-//                    binding.tvWKnockout.text = result.data?.get(0)!!.w_knockout.toString()
-//                    binding.tvWSubmission.text = result.data?.get(0)!!.w_submission.toString()
-//                    binding.tvWDecision.text = result.data?.get(0)!!.w_decision.toString()
-//                    binding.tvLKnockout.text = result.data?.get(0)!!.l_knockout.toString()
-//                    binding.tvLSubmission.text = result.data?.get(0)!!.l_submission.toString()
-//                    binding.tvLDecision.text = result.data?.get(0)!!.l_decision.toString()
-//                    binding.tvTotalMatch.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
-//                            result.data?.get(0)!!.w_decision!! + result.data?.get(0)!!.l_knockout!! +
-//                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
-//                    binding.tvTotalWin.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
-//                            result.data?.get(0)!!.w_decision!!).toString()
-//                    binding.tvTotalLose.text = (result.data?.get(0)!!.l_knockout!! +
-//                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
-//
-//
-//                    if ((binding.tvTotalMatch.text as String).toInt() > 1){
-//                        binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Matches"
-//                    }else { binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Match" }
-//
-//                    if ((binding.tvTotalWin.text as String).toInt() > 1){
-//                        binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Wins"
-//                    }else { binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Win" }
-//
-//                    if ((binding.tvTotalLose.text as String).toInt() > 1){
-//                        binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Losses"
-//                    }else { binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Lose" }
+                    binding.tvWKnockout.text = result.data?.get(0)!!.w_knockout.toString()
+                    binding.tvWSubmission.text = result.data?.get(0)!!.w_submission.toString()
+                    binding.tvWDecision.text = result.data?.get(0)!!.w_decision.toString()
+                    binding.tvLKnockout.text = result.data?.get(0)!!.l_knockout.toString()
+                    binding.tvLSubmission.text = result.data?.get(0)!!.l_submission.toString()
+                    binding.tvLDecision.text = result.data?.get(0)!!.l_decision.toString()
+                    binding.tvTotalMatch.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
+                            result.data?.get(0)!!.w_decision!! + result.data?.get(0)!!.l_knockout!! +
+                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
+                    binding.tvTotalWin.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
+                            result.data?.get(0)!!.w_decision!!).toString()
+                    binding.tvTotalLose.text = (result.data?.get(0)!!.l_knockout!! +
+                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
+
+                    if ((binding.tvTotalMatch.text as String).toInt() > 1){
+                        binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Matches"
+                    }else { binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Match" }
+
+                    if ((binding.tvTotalWin.text as String).toInt() > 1){
+                        binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Wins"
+                    }else { binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Win" }
+
+                    if ((binding.tvTotalLose.text as String).toInt() > 1){
+                        binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Losses"
+                    }else { binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Lose" }
 
                     Glide.with(view.context).load(result.data?.get(0)!!.fighter_image)
                         .into(binding.ivFghterImage)
@@ -147,21 +149,29 @@ class FighterActivity : AppCompatActivity(){
 
             val detailFighterRecord : DetailFighterResult = fighterDetail!![position]
 
+//            if (detailFighterRecord.detail_fighter_against.length > 14) {
+//                fighter[i].substring(0, 12) + ".."
+            val againtFighter = if (detailFighterRecord.detail_fighter_against!!.length > 18) {
+                detailFighterRecord.detail_fighter_against!!.substring(0, 16) + ".."
+            } else {
+                detailFighterRecord.detail_fighter_against!!
+            }
 
             holder.tvIdx.text = (position+1).toString()
-            holder.tvDetailFighterResult.text = detailFighterRecord.detail_fighter_result
-            holder.tvDetailFighterRecord.text = detailFighterRecord.detail_fighter_record
-            holder.tvDetailFighterAgainst.text = detailFighterRecord.detail_fighter_against
-            holder.tvDetailFighterMethod.text = detailFighterRecord.detail_fighter_method
-            holder.tvDetailFighterMatchRound.text = detailFighterRecord.detail_fighter_match_round  + " Round"
-            holder.tvDetailFighterMatchTime.text = detailFighterRecord.detail_fighter_match_time.toString().substring(3)
-            holder.tvDetailFighterMatchDay.text = detailFighterRecord.detail_fighter_match_day
-            holder.tvDetailFighterEventName.text = detailFighterRecord.detail_fighter_event_name
+            holder.tvDetailFighterResult.text = detailFighterRecord.detail_fighter_result + "\n(" + detailFighterRecord.detail_fighter_match_round  + "Round)"
+            holder.tvDetailFighterRecord.text = detailFighterRecord.detail_fighter_record + "\n" + detailFighterRecord.detail_fighter_match_time.toString().substring(3)
+            holder.btnDetailFighterAgainst.text = againtFighter +"\n" + detailFighterRecord.detail_fighter_method
+            holder.tvDetailFighterMatchDay.text = detailFighterRecord.detail_fighter_match_day + "\n" + detailFighterRecord.detail_fighter_event_name
 
             if (position %2 != 1 ){
                 holder.detailConstraintLayout.setBackgroundColor(Color.parseColor("#ffffff"))
             }
 
+            holder.btnDetailFighterAgainst.setOnClickListener {
+                val intent = Intent(this@FighterActivity, FighterActivity::class.java)
+                intent.putExtra("fighterName",  detailFighterRecord.detail_fighter_against)
+                startActivity(intent)
+            }
 
         }
 
@@ -181,12 +191,12 @@ class FighterActivity : AppCompatActivity(){
             var tvIdx : TextView = dfListBinding.tvInx
             var tvDetailFighterResult : TextView = dfListBinding.tvDetailFighterResult
             var tvDetailFighterRecord: TextView = dfListBinding.tvDetailFighterRecord
-            var tvDetailFighterAgainst: TextView = dfListBinding.tvDetailFighterAgainst
-            var tvDetailFighterMethod: TextView = dfListBinding.tvDetailFighterMethod
-            var tvDetailFighterMatchRound: TextView = dfListBinding.tvDetailFighterMatchRound
-            var tvDetailFighterMatchTime: TextView = dfListBinding.tvDetailFighterMatchTime
+            var btnDetailFighterAgainst: Button = dfListBinding.btnDetailFighterAgainst
+//            var tvDetailFighterMethod: TextView = dfListBinding.tvDetailFighterMethod
+//            var tvDetailFighterMatchRound: TextView = dfListBinding.tvDetailFighterMatchRound
+//            var tvDetailFighterMatchTime: TextView = dfListBinding.tvDetailFighterMatchTime
             var tvDetailFighterMatchDay: TextView = dfListBinding.tvDetailFighterMatchDay
-            var tvDetailFighterEventName: TextView = dfListBinding.tvDetailFighterEventName
+//            var tvDetailFighterEventName: TextView = dfListBinding.tvDetailFighterEventName
             var detailConstraintLayout: ConstraintLayout = dfListBinding.DetailConstraintLayout
 
 
