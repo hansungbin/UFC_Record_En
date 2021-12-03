@@ -173,6 +173,10 @@ class FighterActivity : AppCompatActivity(){
                 startActivity(intent)
             }
 
+//            holder.btnDetailFighterMatchDay.setOnClickListener {
+//
+//            }
+
         }
 
         override fun getItemCount(): Int {

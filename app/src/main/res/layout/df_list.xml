@@ -84,8 +84,8 @@
                         android:gravity="center"
                         android:maxLines="3"
                         android:text="Dan Ige"
-                        android:textSize="13sp"
-                        android:textColor="@color/colorNavIcon" />
+                        android:textColor="@color/colorNavIcon"
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/tv_detail_fighter_match_day"
@@ -95,7 +95,9 @@
                         android:gravity="center"
                         android:maxLines="3"
                         android:text="Decision (unanimous)"
-                        android:textColor="@color/colorNavIcon" />
+                        android:textColor="@color/colorNavIcon"
+                        android:textSize="13sp" />
+
                 </LinearLayout>
 
 <!--                <LinearLayout-->
