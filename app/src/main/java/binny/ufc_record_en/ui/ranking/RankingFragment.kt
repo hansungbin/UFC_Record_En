@@ -72,7 +72,6 @@ class RankingFragment : Fragment() {
     private var wstrawwRankingAdapter = WstrawwRankingAdapter()
     private var wflywRankingAdapter = WflywRankingAdapter()
     private var wbantamwRankingAdapter = WbantamwRankingAdapter()
-    var logTag : String? = "로그 RankingFragment"
 
     val listStatus: MutableList<String> = ArrayList()
 

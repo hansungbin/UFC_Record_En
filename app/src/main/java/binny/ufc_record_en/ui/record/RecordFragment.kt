@@ -38,7 +38,6 @@ class RecordFragment : Fragment() {
 
     private lateinit var fighter : List<String>
 
-    val logTag = "로그 RecordFragment"
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -28,7 +28,6 @@ import retrofit2.Callback
 class DetailRecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailRecordBinding
     private val mApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
-    val logTag = "로그 DetailRecordActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,6 +87,19 @@ class DetailRecordActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: DRItem, position: Int) {
 
             val detailRecord: UfcEventResult = mUfcResult!![position]
+            val searchWinerName = detailRecord.game_winner.toString().split("|")
+            val searchLoserName = detailRecord.game_loser.toString().split("|")
+
+            var winner = ""
+            var loser = ""
+
+            for (element in searchWinerName) {
+                winner += element
+            }
+
+            for (element in searchLoserName) {
+                loser += element
+            }
 
             when {
                 position == 0 -> {
@@ -120,35 +132,32 @@ class DetailRecordActivity : AppCompatActivity() {
 
             holder.gClass.text = weightClass + "\n"+ gameMethod
 
-            if (detailRecord.game_winner.toString().length > 15) {
+            if (winner.length > 15) {
                 holder.winner.text =
-                    detailRecord.game_winner!!.substring(0, 13) + ".." + "\n( " + detailRecord.game_round.toString() + " Round )"
+                    winner!!.substring(0, 13) + ".." + "\n( " + detailRecord.game_round.toString() + " Round )"
             } else {
                 holder.winner.text =
-                    detailRecord.game_winner.toString() + "\n(" + detailRecord.game_round.toString() + " Round )"
+                    winner + "\n(" + detailRecord.game_round.toString() + " Round )"
             }
 
             if (detailRecord.game_loser.toString().length > 15) {
                 holder.loser.text =
-                    detailRecord.game_loser!!.substring(0, 13) + ".." + "\n" + detailRecord.game_match_time.toString().substring(3)
+                    loser!!.substring(0, 13) + ".." + "\n" + detailRecord.game_match_time.toString().substring(3)
             } else {
                 holder.loser.text =
-                    detailRecord.game_loser.toString() + "\n" + detailRecord.game_match_time.toString().substring(3)
+                    loser + "\n" + detailRecord.game_match_time.toString().substring(3)
             }
+
 
             holder.winner.setOnClickListener {
                 val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
-                var searchName = holder.winner.text
-                searchName = searchName.replace("\\(c\\)".toRegex(),"")
-                intent.putExtra("fighterName", searchName)
+                intent.putExtra("fighterName", searchWinerName[0])
                 startActivity(intent)
             }
 
             holder.loser.setOnClickListener {
                 val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
-                var searchName = holder.loser.text
-                searchName = searchName.replace("\\(c\\)".toRegex(),"")
-                intent.putExtra("fighterName", searchName)
+                intent.putExtra("fighterName", searchLoserName[0])
                 startActivity(intent)
             }
 

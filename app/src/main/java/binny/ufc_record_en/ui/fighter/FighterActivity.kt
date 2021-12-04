@@ -30,7 +30,6 @@ class FighterActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityFighterBinding
     private val fApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
-    var logTag : String? = "로그 FighterActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +48,6 @@ class FighterActivity : AppCompatActivity(){
 
         binding.btnFighterListBack.setOnClickListener {
             this.finish()
-            binding.noFighterConstraintLayout.visibility = View.GONE
-            binding.constraintLayout1.visibility = View.VISIBLE
         }
 
         call?.enqueue(object : Callback<Fighter?> {
