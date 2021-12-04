@@ -107,7 +107,20 @@ class DetailRecordActivity : AppCompatActivity() {
 
             holder.gNumber.text = ((position+1).toString())
 
-            holder.gClass.text = detailRecord.game_class.toString() + "\n"+ detailRecord.game_method.toString()
+            val weightClass = if (detailRecord.game_class.toString().length > 14) {
+                detailRecord.game_class!!.substring(0, 12) + ".."
+            } else {
+                detailRecord.game_class.toString()
+            }
+
+            val gameMethod = if ( detailRecord.game_method.toString().length > 23){
+                detailRecord.game_method!!.substring(0, 21) + ".."
+            } else {
+                detailRecord.game_method!!.toString()
+            }
+
+
+            holder.gClass.text = weightClass + "\n"+ gameMethod
 
             if (detailRecord.game_winner.toString().length > 15) {
                 holder.winner.text =
@@ -133,7 +146,7 @@ class DetailRecordActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            holder.loser.setOnClickListener { v->
+            holder.loser.setOnClickListener {
                 val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
                 var searchName = holder.loser.text
                 searchName = searchName.replace("\\(c\\)".toRegex(),"")

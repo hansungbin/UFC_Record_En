@@ -57,7 +57,7 @@ class RecordFragment : Fragment() {
         etSearch = root.findViewById(R.id.et_record_search)
         btnSearch = root.findViewById(R.id.btn_record_search)
         recordListLayout = root.findViewById(R.id.record_list_constraintLayout)
-        btnFighterListBack = root.findViewById(R.id.btn_fighter_list_back)
+//        btnFighterListBack = root.findViewById(R.id.btn_fighter_list_back)
         noResultConstraintLayout = root.findViewById(R.id.no_result_constraintLayout)
         btnRecordListBack = root.findViewById(R.id.btn_record_list_back)
 

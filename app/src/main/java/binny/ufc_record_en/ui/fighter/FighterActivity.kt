@@ -46,9 +46,9 @@ class FighterActivity : AppCompatActivity(){
         val queries = mapOf("ufc_fighter_name" to param)
         val call : Call<Fighter?>? = fApi!!.getFighterDetailData(queries)
 
-        binding.btnFighterListBack.setOnClickListener {
-            this.finish()
-        }
+//        binding.btnFighterListBack.setOnClickListener {
+//            this.finish()
+//        }
 
         call?.enqueue(object : Callback<Fighter?> {
             @SuppressLint("SetTextI18n")
@@ -57,8 +57,8 @@ class FighterActivity : AppCompatActivity(){
 
                 if(result.data!!.isNotEmpty()) {
 
-                    binding.fighterConstraintLayout.visibility = View.VISIBLE
-                    binding.fighterNoResultConstraintLayout.visibility = View.GONE
+//                    binding.fighterDetailScrollview.visibility = View.VISIBLE
+//                    binding.fighterNoResultConstraintLayout.visibility = View.GONE
 
                     adapter.setList(result.data?.get(0)?.total_fighter_record)
 
@@ -116,8 +116,8 @@ class FighterActivity : AppCompatActivity(){
                     Glide.with(view.context).load(result.data?.get(0)!!.fighter_image)
                         .into(binding.ivFghterImage)
                 }else if(result.data?.size!! < 1 ) {
-                    binding.fighterConstraintLayout.visibility = View.GONE
-                    binding.fighterNoResultConstraintLayout.visibility = View.VISIBLE
+//                    binding.fighterDetailScrollview.visibility = View.GONE
+//                    binding.fighterNoResultConstraintLayout.visibility = View.VISIBLE
                 }
             }
 
@@ -149,8 +149,6 @@ class FighterActivity : AppCompatActivity(){
 
             val detailFighterRecord : DetailFighterResult = fighterDetail!![position]
 
-//            if (detailFighterRecord.detail_fighter_against.length > 14) {
-//                fighter[i].substring(0, 12) + ".."
             val againtFighter = if (detailFighterRecord.detail_fighter_against!!.length > 18) {
                 detailFighterRecord.detail_fighter_against!!.substring(0, 16) + ".."
             } else {
@@ -158,7 +156,7 @@ class FighterActivity : AppCompatActivity(){
             }
 
             holder.tvIdx.text = (position+1).toString()
-            holder.tvDetailFighterResult.text = detailFighterRecord.detail_fighter_result + "\n(" + detailFighterRecord.detail_fighter_match_round  + "Round)"
+            holder.tvDetailFighterResult.text = detailFighterRecord.detail_fighter_result + "\n" + detailFighterRecord.detail_fighter_match_round  + " Round"
             holder.tvDetailFighterRecord.text = detailFighterRecord.detail_fighter_record + "\n" + detailFighterRecord.detail_fighter_match_time.toString().substring(3)
             holder.btnDetailFighterAgainst.text = againtFighter +"\n" + detailFighterRecord.detail_fighter_method
             holder.tvDetailFighterMatchDay.text = detailFighterRecord.detail_fighter_match_day + "\n" + detailFighterRecord.detail_fighter_event_name
@@ -172,10 +170,6 @@ class FighterActivity : AppCompatActivity(){
                 intent.putExtra("fighterName",  detailFighterRecord.detail_fighter_against)
                 startActivity(intent)
             }
-
-//            holder.btnDetailFighterMatchDay.setOnClickListener {
-//
-//            }
 
         }
 
@@ -196,11 +190,7 @@ class FighterActivity : AppCompatActivity(){
             var tvDetailFighterResult : TextView = dfListBinding.tvDetailFighterResult
             var tvDetailFighterRecord: TextView = dfListBinding.tvDetailFighterRecord
             var btnDetailFighterAgainst: Button = dfListBinding.btnDetailFighterAgainst
-//            var tvDetailFighterMethod: TextView = dfListBinding.tvDetailFighterMethod
-//            var tvDetailFighterMatchRound: TextView = dfListBinding.tvDetailFighterMatchRound
-//            var tvDetailFighterMatchTime: TextView = dfListBinding.tvDetailFighterMatchTime
             var tvDetailFighterMatchDay: TextView = dfListBinding.tvDetailFighterMatchDay
-//            var tvDetailFighterEventName: TextView = dfListBinding.tvDetailFighterEventName
             var detailConstraintLayout: ConstraintLayout = dfListBinding.DetailConstraintLayout
 
 

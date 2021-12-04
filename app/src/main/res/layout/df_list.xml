@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/Ranking_NestScrollView"
@@ -100,51 +99,51 @@
 
                 </LinearLayout>
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@+id/match_layout0"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:weightSum="20">-->
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_below="@+id/match_layout0"-->
+                <!--                    android:orientation="horizontal"-->
+                <!--                    android:weightSum="20">-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_detail_fighter_match_round"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="4"-->
-<!--                        android:gravity="center"-->
-<!--                        android:text="5 round"-->
-<!--                        android:textColor="@color/colorNavIcon" />-->
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tv_detail_fighter_match_round"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="4"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:text="5 round"-->
+                <!--                        android:textColor="@color/colorNavIcon" />-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_detail_fighter_match_time"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="3"-->
-<!--                        android:gravity="center"-->
-<!--                        android:text="05:00"-->
-<!--                        android:textColor="@color/colorNavIcon" />-->
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tv_detail_fighter_match_time"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="3"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:text="05:00"-->
+                <!--                        android:textColor="@color/colorNavIcon" />-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_detail_fighter_method"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="6"-->
-<!--                        android:gravity="center"-->
-<!--                        android:maxLines="2"-->
-<!--                        android:text="2021-06-19"-->
-<!--                        android:textColor="@color/colorNavIcon" />-->
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tv_detail_fighter_method"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="6"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:maxLines="2"-->
+                <!--                        android:text="2021-06-19"-->
+                <!--                        android:textColor="@color/colorNavIcon" />-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_detail_fighter_event_name"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="7"-->
-<!--                        android:gravity="center"-->
-<!--                        android:maxLines="2"-->
-<!--                        android:text="UFC on ESPN:The Kor.."-->
-<!--                        android:textColor="@color/colorNavIcon" />-->
-<!--                </LinearLayout>-->
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/tv_detail_fighter_event_name"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="7"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:maxLines="2"-->
+                <!--                        android:text="UFC on ESPN:The Kor.."-->
+                <!--                        android:textColor="@color/colorNavIcon" />-->
+                <!--                </LinearLayout>-->
 
             </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

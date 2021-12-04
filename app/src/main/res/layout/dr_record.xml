@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Record 경기 결과 상세 페이지-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -21,29 +22,30 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_marginTop="3dp"
                     android:id="@+id/match_kind"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#26357B"
-                    android:textStyle="bold|italic"
+                    android:layout_marginTop="3dp"
                     android:gravity="center"
+                    android:text="A Match"
+                    android:textColor="#26357B"
                     android:textSize="17sp"
-                    android:text="A Match" />
+                    android:textStyle="bold|italic" />
             </LinearLayout>
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/row"
-            android:layout_below="@+id/division_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/division_layout">
 
             <LinearLayout
                 android:id="@+id/match_layout5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="4dp"
+                android:orientation="horizontal"
                 android:weightSum="3">
 
 
@@ -53,26 +55,26 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/row"
-                    android:text="@string/weight_class" />
+                    android:text="@string/weight_class"
+                    android:textColor="@color/row" />
 
                 <TextView
                     android:id="@+id/textWinner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/row"
                     android:gravity="center"
-                    android:text="@string/winner" />
+                    android:text="@string/winner"
+                    android:textColor="@color/row" />
 
                 <TextView
                     android:id="@+id/TextLoser"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/row"
                     android:gravity="center"
-                    android:text="@string/loser" />
+                    android:text="@string/loser"
+                    android:textColor="@color/row" />
             </LinearLayout>
 
         </RelativeLayout>
