@@ -45,7 +45,7 @@
                 android:gravity="center_vertical"
                 android:text="Chan Sung Jung"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="21sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/tv_fighter_other_names"
                 app:layout_constraintStart_toStartOf="parent"
@@ -116,26 +116,9 @@
                 android:text="23 matches\n17 wins-6 losses"
                 android:textColor="#94999E"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_ufc_event_city"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/currently_fighter_division" />
-
-
-            <TextView
-                android:id="@+id/tv_ufc_event_city"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="2dp"
-                android:gravity="right"
-                android:maxLines="2"
-                android:text="City"
-                android:textColor="@color/black"
-                android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fighter_record"
-                tools:ignore="RtlHardcoded" />
+                app:layout_constraintTop_toBottomOf="@+id/currently_fighter_division" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

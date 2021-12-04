@@ -30,6 +30,7 @@ class FighterActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityFighterBinding
     private val fApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
+    var logTag : String? = "로그 FighterActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,19 +47,23 @@ class FighterActivity : AppCompatActivity(){
         val queries = mapOf("ufc_fighter_name" to param)
         val call : Call<Fighter?>? = fApi!!.getFighterDetailData(queries)
 
-//        binding.btnFighterListBack.setOnClickListener {
-//            this.finish()
-//        }
+        binding.btnFighterListBack.setOnClickListener {
+            binding.noFighterConstraintLayout.visibility = View.GONE
+            binding.constraintLayout1.visibility = View.VISIBLE
+            this.finish()
+        }
 
         call?.enqueue(object : Callback<Fighter?> {
             @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<Fighter?>, response: Response<Fighter?>) {
                 val result: Fighter = response.body() as Fighter
 
+
+
                 if(result.data!!.isNotEmpty()) {
 
-//                    binding.fighterDetailScrollview.visibility = View.VISIBLE
-//                    binding.fighterNoResultConstraintLayout.visibility = View.GONE
+                    binding.constraintLayout1.visibility = View.VISIBLE
+                    binding.noFighterConstraintLayout.visibility = View.GONE
 
                     adapter.setList(result.data?.get(0)?.total_fighter_record)
 
@@ -116,8 +121,8 @@ class FighterActivity : AppCompatActivity(){
                     Glide.with(view.context).load(result.data?.get(0)!!.fighter_image)
                         .into(binding.ivFghterImage)
                 }else if(result.data?.size!! < 1 ) {
-//                    binding.fighterDetailScrollview.visibility = View.GONE
-//                    binding.fighterNoResultConstraintLayout.visibility = View.VISIBLE
+                    binding.constraintLayout1.visibility = View.GONE
+                    binding.noFighterConstraintLayout.visibility = View.VISIBLE
                 }
             }
 
@@ -179,6 +184,7 @@ class FighterActivity : AppCompatActivity(){
 
         @SuppressLint("NotifyDataSetChanged")
         fun setList(detailFighter: List<DetailFighterResult>?) {
+
             fighterDetail!!.clear()
             fighterDetail!!.addAll(detailFighter!!)
             notifyDataSetChanged()

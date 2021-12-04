@@ -34,7 +34,6 @@ class RecordFragment : Fragment() {
     private var result: Record? = null
     private var noResultConstraintLayout : ConstraintLayout? = null
     private var recordListLayout : ConstraintLayout? = null
-    private var btnFighterListBack : Button? = null
     private var btnRecordListBack : Button? = null
 
     private lateinit var fighter : List<String>
@@ -57,9 +56,8 @@ class RecordFragment : Fragment() {
         etSearch = root.findViewById(R.id.et_record_search)
         btnSearch = root.findViewById(R.id.btn_record_search)
         recordListLayout = root.findViewById(R.id.record_list_constraintLayout)
-//        btnFighterListBack = root.findViewById(R.id.btn_fighter_list_back)
-        noResultConstraintLayout = root.findViewById(R.id.no_result_constraintLayout)
-        btnRecordListBack = root.findViewById(R.id.btn_record_list_back)
+        noResultConstraintLayout = root.findViewById(R.id.no_fighter_constraintLayout)
+        btnRecordListBack = root.findViewById(R.id.btn_fighter_list_back)
 
         getRecordApi(rAdapter)
 
@@ -170,9 +168,9 @@ class RecordFragment : Fragment() {
             var ufcEventLoser: String? = null
 
             var i = 0
-
             var matchCount = 0
-            if(!(record.ufc_event_fighter == null || record.ufc_event_fighter == "Canceled")) {
+
+            if(record.ufc_event_fighter != null && record.ufc_event_fighter != "Canceled") {
                 while (matchCount < 3) {
 
                     val winner: String =
@@ -224,9 +222,6 @@ class RecordFragment : Fragment() {
             if (!(record.ufc_event_image == null || record.ufc_event_image == "Canceled")) {
                 Glide.with(holder.itemView.context).load(record.ufc_event_image)
                     .into(holder.ufcEventImage)
-            }else {
-//                holder.ufcEventImage.layoutParams.height = ConstraintLayout.LayoutParams.WRAP_CONTENT
-//                holder.ufcEventImage.layoutParams.height = 80
             }
         }
 

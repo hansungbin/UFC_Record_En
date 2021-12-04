@@ -87,7 +87,6 @@ class RankingFragment : Fragment() {
             listStatus.add("Off")
         }
 
-        Log.d(logTag,"onCreateView is called // listStatus.size = ${listStatus.size}")
         val root = inflater.inflate(R.layout.fragment_ranking, container, false)
 
         mpfpRankingRecyclerView = root.findViewById(R.id.mpfp_ranking_RecyclerView)
@@ -885,10 +884,6 @@ class RankingFragment : Fragment() {
                         wstrawwRankingAdapter.setList(ranking!!.data!!.subList(0, 16))
                     }
                     listStatus[11] == "On" -> {
-                        Log.d(logTag,"onResponse is called // listStatus[11] = ${listStatus[11]}")
-                        Log.d(logTag,"onResponse is called // listStatus[0] = ${listStatus[0]}")
-                        Log.d(logTag,"onResponse is called // listStatus.size = ${listStatus.size}")
-                        Log.d(logTag,"onResponse is called // listStatus[12] = ${listStatus[12]}")
                         initAdapter()
                         wflywRankingAdapter.clear()
                         wflywRankingAdapter.setList(ranking!!.data!!.subList(0, 16))

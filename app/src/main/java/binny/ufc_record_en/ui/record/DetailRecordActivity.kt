@@ -49,8 +49,6 @@ class DetailRecordActivity : AppCompatActivity() {
                 // 응답 성공시 어댑터에 결과 전달
                 val result : Record = response.body() as Record
 
-                Log.d(logTag, "onResponse: result.dataDetail?.get(0)?.ufc_event_result = ${result.dataDetail?.get(0)?.ufc_event_result}")
-
                 binding.tvMatchName.text = result.dataDetail?.get(0)!!.ufc_event_name
                 binding.tvPromotionName.text = result.dataDetail?.get(0)!!.ufc_event_promotion
                 binding.tvMatchVenue.text = result.dataDetail?.get(0)!!.ufc_event_venue
