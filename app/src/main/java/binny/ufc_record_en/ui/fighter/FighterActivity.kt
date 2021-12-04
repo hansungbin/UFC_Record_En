@@ -48,9 +48,9 @@ class FighterActivity : AppCompatActivity(){
         val call : Call<Fighter?>? = fApi!!.getFighterDetailData(queries)
 
         binding.btnFighterListBack.setOnClickListener {
+            this.finish()
             binding.noFighterConstraintLayout.visibility = View.GONE
             binding.constraintLayout1.visibility = View.VISIBLE
-            this.finish()
         }
 
         call?.enqueue(object : Callback<Fighter?> {
