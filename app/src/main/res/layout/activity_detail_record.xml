@@ -53,11 +53,19 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/ufc_match"
-                    android:textColor="@color/colorNavIcon"
-                    android:textSize="25sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:textColor="@color/teal_700"
+                    android:textStyle="bold|italic"
+                    android:textSize="22sp"/>
 
+                <TextView
+                    android:id="@+id/tv_event_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="4"
+                    android:text="2021-12-01"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
 
                 <TextView
                     android:id="@+id/tv_promotion_name"
@@ -66,7 +74,7 @@
                     android:layout_weight="1"
                     android:maxLines="4"
                     android:text="@string/ultimate_fighting_nchampionship"
-                    android:textColor="@color/colorNavIcon"
+                    android:textColor="@color/gray"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_match_name"
                     app:layout_constraintTop_toBottomOf="@+id/tv_match_name" />
@@ -79,7 +87,7 @@
                     android:layout_weight="1"
                     android:maxLines="3"
                     android:text="@string/ufc_apex"
-                    android:textColor="@color/colorNavIcon"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_promotion_name" />

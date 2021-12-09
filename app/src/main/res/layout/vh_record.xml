@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/iv_ufc_poster_image"
             android:layout_width="70dp"
-            android:layout_height="0dp"
+            android:layout_height="100dp"
             android:layout_marginEnd="1dp"
             android:background="@color/colorWhite"
             android:contentDescription="@string/todo"
@@ -30,7 +30,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout5"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="1dp"
             android:background="@color/colorWhite"
             android:orientation="vertical"
@@ -43,145 +43,167 @@
                 android:id="@+id/tv_ufc_event_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="3dp"
-                android:gravity="center_vertical"
+                android:gravity="center_horizontal"
                 android:maxLines="2"
                 android:text="@string/match"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintBottom_toTopOf="@+id/tv_ufc_Event_Promotion"
-                app:layout_constraintEnd_toStartOf="@+id/tv_ufc_event_date"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!--경기 일자-->
-            <TextView
-                android:id="@+id/tv_ufc_event_date"
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="3dp"
-                android:layout_toEndOf="@+id/tv_ufc_event_name"
-                android:gravity="right"
-                android:maxLines="1"
-                android:text="2021_01_01"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_ufc_event_city"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_ufc_Event_Promotion"
-                android:layout_width="250dp"
-                android:layout_height="18dp"
-                android:layout_marginTop="-3dp"
-                android:gravity="left"
-                android:maxLines="2"
-                android:text="Promotion"
-                android:textColor="#94999E"
-                android:textSize="13sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toTopOf="@+id/constraintlayout_match_preview"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ufc_event_name" />
-
-            <TextView
-                android:id="@+id/tv_ufc_event_city"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="3dp"
-                android:gravity="right"
-                android:maxLines="2"
-                android:text="city"
-                android:textColor="@color/black"
-                android:textSize="11sp"
-                app:layout_constraintBottom_toTopOf="@+id/constraintlayout_match_preview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ufc_event_date"
-                tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/tv_match_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="101dp"
                 android:text="@string/cancelMatch"
                 android:textSize="16sp"
                 android:textStyle="bold|italic"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ufc_Event_Promotion" />
-
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintlayout_match_preview"
-                android:layout_width="match_parent"
+                android:id="@+id/constraintLayout6"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tv_ufc_event_name"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ufc_Event_Promotion">
+                app:layout_constraintBottom_toTopOf="@+id/constraintlayout_match_preview"
+                app:layout_constraintEnd_toStartOf="@+id/tv_ufc_event_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ufc_event_name">
 
                 <TextView
-                    android:id="@+id/currently_fighter_division"
-                    android:layout_width="105dp"
+                    android:id="@+id/tvWinner"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="-2dp"
-                    android:background="@color/colorWhite"
-                    android:gravity="center_vertical"
-                    android:maxLength="80"
-                    android:maxLines="4"
-                    android:text="@string/winner"
-                    android:textColor="#555555"
-                    android:textSize="11sp"
+                    android:layout_marginStart="35dp"
+                    android:gravity="center"
+                    android:text="Winner"
+                    android:textSize="12sp"
+                    android:textStyle="bold|italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_vs"
+                    android:id="@+id/tvLoser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/vs"
-                    android:textColor="#D60000"
-                    android:textSize="17sp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:text="Loser"
+                    android:textSize="12sp"
                     android:textStyle="bold|italic"
-                    app:layout_constraintBottom_toBottomOf="@+id/currently_fighter_division"
-                    app:layout_constraintStart_toEndOf="@+id/currently_fighter_division"
-                    app:layout_constraintTop_toTopOf="@+id/currently_fighter_division" />
-
-                <TextView
-                    android:id="@+id/tv_ufc_event_loser"
-                    android:layout_width="105dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:gravity="center_vertical"
-                    android:maxLength="80"
-                    android:maxLines="4"
-                    android:text="@string/loser"
-                    android:textColor="#555555"
-                    android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tv_vs"
-                    app:layout_constraintTop_toTopOf="@+id/currently_fighter_division" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_ufc_event_date"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:gravity="right"
+                android:maxLines="1"
+                android:text="2021_01_01"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintlayout_match_preview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout6"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ufc_event_name" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayout_match_preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
+                tools:layout_editor_absoluteX="2dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_more_match"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/currently_fighter_division"
+                        android:layout_width="105dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:background="@color/colorWhite"
+                        android:gravity="center"
+                        android:maxLength="80"
+                        android:maxLines="4"
+                        android:text="@string/winner"
+                        android:textColor="#555555"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_vs"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_vs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:text="@string/vs"
+                        android:textColor="#D60000"
+                        android:textSize="17sp"
+                        android:textStyle="bold|italic"
+                        app:layout_constraintBottom_toBottomOf="@+id/currently_fighter_division"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_ufc_event_loser"
+                        app:layout_constraintStart_toEndOf="@+id/currently_fighter_division"
+                        app:layout_constraintTop_toTopOf="@+id/currently_fighter_division" />
+
+                    <TextView
+                        android:id="@+id/tv_ufc_event_loser"
+                        android:layout_width="105dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:gravity="center"
+                        android:maxLength="80"
+                        android:maxLines="4"
+                        android:text="@string/loser"
+                        android:textColor="#555555"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tv_vs"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/tv_more_match"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="5dp"
                     android:background="#07000000"
                     android:gravity="right"
-                    android:text="@string/match"
+                    android:text=" +9 more\n match"
                     android:textColor="#94999E"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="RtlHardcoded" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

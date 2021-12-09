@@ -25,11 +25,12 @@ import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+// Fighter 디테일 페이지
 class FighterActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityFighterBinding
     private val fApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
+    val logTag = "로그 FighterActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,38 +56,27 @@ class FighterActivity : AppCompatActivity(){
             override fun onResponse(call: Call<Fighter?>, response: Response<Fighter?>) {
                 val result: Fighter = response.body() as Fighter
 
-
-
                 if(result.data!!.isNotEmpty()) {
-
                     binding.constraintLayout1.visibility = View.VISIBLE
                     binding.noFighterConstraintLayout.visibility = View.GONE
 
                     adapter.setList(result.data?.get(0)?.total_fighter_record)
 
-                    if(result.data?.get(0)!!.fighter_name!!.isNotEmpty()) {
+                    if (result.data?.get(0)!!.fighter_name!!.isNotEmpty()) {
                         binding.tvMpfpFighterName.text = result.data?.get(0)!!.fighter_name
-                    }else {binding.tvMpfpFighterName.visibility = View.GONE}
-
-                    if(result.data?.get(0)!!.fighter_born!!.isNotEmpty()) {
                         binding.tvFighterBorn.text = result.data?.get(0)!!.fighter_born
-                    }else {binding.tvFighterBorn.visibility = View.GONE}
-
-                    if(result.data?.get(0)!!.fighter_other_names!!.isNotEmpty()) {
                         binding.tvFighterOtherNames.text = result.data?.get(0)!!.fighter_other_names
-                    }else {binding.tvFighterOtherNames.visibility = View.GONE}
-
-                    if(result.data?.get(0)!!.fighter_residence!!.isNotEmpty()) {
-                        binding.tvFighterResidence.text = result.data?.get(0)!!.fighter_residence
-                    }else {binding.tvFighterResidence.visibility = View.GONE}
-
-                    if(result.data?.get(0)!!.fighter_nationality!!.isNotEmpty()) {
-                        binding.tvFighterNationality.text = result.data?.get(0)!!.fighter_nationality
-                    }else {binding.tvFighterNationality.visibility = View.GONE}
-
-                    if(result.data?.get(0)!!.fighter_division!!.isNotEmpty()) {
                         binding.tvFighterDivision.text = result.data?.get(0)!!.fighter_division
-                    }else {binding.tvFighterDivision.visibility = View.GONE}
+                        binding.tvFighterResidence.text = result.data?.get(0)!!.fighter_residence
+                        binding.tvFighterNationality.text =result.data?.get(0)!!.fighter_nationality
+                    } else {
+                        binding.tvMpfpFighterName.visibility = View.GONE
+                        binding.tvFighterBorn.visibility = View.GONE
+                        binding.tvFighterOtherNames.visibility = View.GONE
+                        binding.tvFighterResidence.visibility = View.GONE
+                        binding.tvFighterNationality.visibility = View.GONE
+                        binding.tvFighterDivision.visibility = View.GONE
+                    }
 
                     binding.tvFighterResidence.text = result.data?.get(0)!!.fighter_residence
                     binding.tvWKnockout.text = result.data?.get(0)!!.w_knockout.toString()
@@ -118,6 +108,7 @@ class FighterActivity : AppCompatActivity(){
                     Glide.with(view.context).load(result.data?.get(0)!!.fighter_image)
                         .into(binding.ivFghterImage)
                 }else if(result.data?.size!! < 1 ) {
+                    Log.d(logTag, "onResponse: result.data?.size is empty")
                     binding.constraintLayout1.visibility = View.GONE
                     binding.noFighterConstraintLayout.visibility = View.VISIBLE
                 }
@@ -140,7 +131,10 @@ class FighterActivity : AppCompatActivity(){
 
         private var fighterDetail : ArrayList<DetailFighterResult>? = ArrayList()
 
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DFItem {
+            val logTag = "로그 FighterActivity"
+            Log.d(logTag, "onCreateViewHolder: fighterDetail!!.size = ${fighterDetail!!.size}")
             val fdrView = LayoutInflater.from(parent.context).inflate(R.layout.df_list, parent, false)
             return DFItem(DfListBinding.bind(fdrView))
         }
@@ -151,6 +145,9 @@ class FighterActivity : AppCompatActivity(){
 
             val detailFighterRecord : DetailFighterResult = fighterDetail!![position]
 
+            val logTag = "로그 FighterActivity"
+
+            Log.d(logTag, "onBindViewHolder: position = $position")
             val againtFighter = if (detailFighterRecord.detail_fighter_against!!.length > 18) {
                 detailFighterRecord.detail_fighter_against!!.substring(0, 16) + ".."
             } else {
@@ -159,10 +156,10 @@ class FighterActivity : AppCompatActivity(){
 
             holder.tvIdx.text = (position+1).toString()
             holder.tvDetailFighterResult.text = detailFighterRecord.detail_fighter_result + "\n" + detailFighterRecord.detail_fighter_match_round  + " Round"
-            holder.tvDetailFighterRecord.text = detailFighterRecord.detail_fighter_record + "\n" + detailFighterRecord.detail_fighter_match_time.toString().substring(3)
+            holder.tvDetailFighterRecord.text = detailFighterRecord.detail_fighter_record + "\n" + detailFighterRecord.detail_fighter_match_time
             holder.btnDetailFighterAgainst.text = againtFighter +"\n" + detailFighterRecord.detail_fighter_method
             holder.tvDetailFighterMatchDay.text = detailFighterRecord.detail_fighter_match_day + "\n" + detailFighterRecord.detail_fighter_event_name
-
+            Log.d(logTag, "onBindViewHolder: holder.tvIdx.text = ${holder.tvIdx.text}")
             if (position %2 != 1 ){
                 holder.detailConstraintLayout.setBackgroundColor(Color.parseColor("#ffffff"))
             }

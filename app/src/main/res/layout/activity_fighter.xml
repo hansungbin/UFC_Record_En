@@ -5,7 +5,8 @@
     android:id="@+id/fighter_scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,12 +15,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/no_fighter_constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout1">
 
             <TextView
                 android:id="@+id/textView"
@@ -48,13 +48,16 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:textColor="@android:color/tab_indicator_text"
-            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:context=".ui.fighter.FighterActivity">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,13 +82,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/LinearLayout2"
                     android:layout_width="0dp"
                     android:layout_height="250dp"
                     android:layout_margin="10dp"
                     android:orientation="vertical"
-                    android:weightSum="4"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iv_fghter_image"
@@ -95,11 +97,13 @@
                         android:id="@+id/tv_mpfp_fighter_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:text="@string/fighter_name"
                         android:textColor="@color/colorNavIcon"
                         android:textSize="25sp"
                         android:textStyle="bold|italic"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_born"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,9 +115,12 @@
                         android:layout_weight="1"
                         android:text="@string/fighter_born"
                         android:textColor="@color/colorNavIcon"
-                        android:textSize="15sp"
-                        app:layout_constraintStart_toStartOf="@+id/tv_match_name"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_match_name" />
+
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_other_names"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_mpfp_fighter_name" />
 
 
                     <TextView
@@ -123,9 +130,11 @@
                         android:layout_weight="1"
                         android:text="@string/fighter_other_names"
                         android:textColor="@color/colorNavIcon"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_residence"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_promotion_name" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_born" />
 
                     <TextView
                         android:id="@+id/tv_fighter_residence"
@@ -134,9 +143,11 @@
                         android:layout_weight="1"
                         android:text="Enterprise"
                         android:textColor="@color/colorNavIcon"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_nationality"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_match_Venue" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_other_names" />
 
                     <TextView
                         android:id="@+id/tv_fighter_nationality"
@@ -145,9 +156,11 @@
                         android:layout_weight="1"
                         android:text="@string/fighter_nationality"
                         android:textColor="@color/colorNavIcon"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_division"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_match_Venue" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_residence" />
 
                     <TextView
                         android:id="@+id/tv_fighter_division"
@@ -156,11 +169,13 @@
                         android:layout_weight="1"
                         android:text="@string/fighter_division"
                         android:textColor="@color/colorNavIcon"
-                        android:textSize="17sp"
+                        android:textSize="13sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_match_Venue" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_nationality" />
 
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -168,6 +183,9 @@
                 android:id="@+id/ConstraintLayout411"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout41"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
 
@@ -370,6 +388,21 @@
 
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/etc_linearlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_etc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorNavIcon"
+                            android:text="Etc_Result" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
 
@@ -423,7 +456,7 @@
 
                     <TextView
                         android:id="@+id/tv_list_inx"
-                        android:layout_width="10dp"
+                        android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
                         android:gravity="center"

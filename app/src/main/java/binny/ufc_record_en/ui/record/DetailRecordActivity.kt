@@ -53,6 +53,7 @@ class DetailRecordActivity : AppCompatActivity() {
                 binding.tvMatchVenue.text = result.dataDetail?.get(0)!!.ufc_event_venue
                 binding.tvMatchCity.text = result.dataDetail?.get(0)!!.ufc_event_city
                 binding.tvMatchBonus.text = result.dataDetail?.get(0)!!.ufc_event_bonus_award
+                binding.tvEventDate.text = result.dataDetail?.get(0)!!.ufc_event_date
 
                 Glide.with(view.context).load(result.dataDetail?.get(0)!!.ufc_event_image)
                     .into(binding.ivMainImage)
@@ -93,6 +94,7 @@ class DetailRecordActivity : AppCompatActivity() {
             var winner = ""
             var loser = ""
 
+            //
             for (element in searchWinerName) {
                 winner += element
             }
@@ -148,7 +150,6 @@ class DetailRecordActivity : AppCompatActivity() {
                     loser + "\n" + detailRecord.game_match_time.toString().substring(3)
             }
 
-
             holder.winner.setOnClickListener {
                 val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
                 intent.putExtra("fighterName", searchWinerName[0])
@@ -184,7 +185,6 @@ class DetailRecordActivity : AppCompatActivity() {
             var loser : TextView = drRecordBinding.loser
             var matchKindLayout : LinearLayout = drRecordBinding.matchKindLayout
             var rowLayout : RelativeLayout = drRecordBinding.row
-
         }
     }
 }

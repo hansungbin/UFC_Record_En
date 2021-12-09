@@ -37,7 +37,8 @@ class FighterListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        val logTag = "로그 FighterListFragment"
+        Log.d(logTag, "onCreateView: 111")
         val root = inflater.inflate(R.layout.fragment_fighter, container, false)
         fighterName = arguments?.getString("ufc_event_search")
         if (fighterName == null || fighterName == "") {
@@ -74,7 +75,8 @@ class FighterListFragment : Fragment() {
             ) {
                 //응답 성공시 어댑터에 결과 전달
                 val result: Fighter = response.body() as Fighter
-
+val logTag = "로그 FighterListFragment"
+                Log.d(logTag, "onResponse: result.size = ${result.data!!.size}")
                 fAdapter.setList(result.data)
 
             }

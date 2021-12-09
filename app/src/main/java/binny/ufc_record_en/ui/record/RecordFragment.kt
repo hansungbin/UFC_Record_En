@@ -154,8 +154,6 @@ class RecordFragment : Fragment() {
 
             holder.ufcEventName.text = record.ufc_event_name
             holder.ufcEventDate.text = record.ufc_event_date
-            holder.ufcEventCity.text = record.ufc_event_city
-            holder.ufcEventPromotion.text = record.ufc_event_promotion
             showMatchCount = record.ufc_event_count?.toInt()
             fighter = emptyList()
 
@@ -173,32 +171,31 @@ class RecordFragment : Fragment() {
                 while (matchCount < 3) {
 
                     val winner: String =
-                        if (fighter[i].length > 14) {
-                            fighter[i].substring(0, 12) + ".."
+                        if (fighter[i].length > 16) {
+                            fighter[i].substring(0, 14) + ".."
                         } else {
                             fighter[i]
                         }
 
                     val loser: String =
-                        if (fighter[i+1].length > 14) {
-                            fighter[i+1].substring(0, 12) + ".."
+                        if (fighter[i+1].length > 16) {
+                            fighter[i+1].substring(0, 14) + ".."
                         } else {
                             fighter[i+1]
                         }
 
                     if (ufcEventWinner == null) {
-                        ufcEventWinner = "(W)$winner"
-                        ufcEventLoser = "(L)$loser"
+                        ufcEventWinner = winner
+                        ufcEventLoser = loser
                     } else {
-                        ufcEventWinner += "\n(W)$winner"
-                        ufcEventLoser += "\n(L)$loser"
+                        ufcEventWinner += "\n$winner"
+                        ufcEventLoser += "\n$loser"
                     }
                     i += 2
                     matchCount += 1
                 }
                 holder.ufcEventWinner.text = ufcEventWinner
                 holder.ufcEventLoser.text = ufcEventLoser
-
                 holder.listLayout.setOnClickListener {
 
                     val intent = Intent(activity, DetailRecordActivity::class.java)
@@ -233,8 +230,6 @@ class RecordFragment : Fragment() {
             var ufcEventName: TextView = itemView.findViewById(R.id.tv_ufc_event_name)
             var ufcEventImage: ImageView = itemView.findViewById(R.id.iv_ufc_poster_image)
             var ufcEventDate: TextView = itemView.findViewById(R.id.tv_ufc_event_date)
-            var ufcEventCity: TextView = itemView.findViewById(R.id.tv_ufc_event_city)
-            var ufcEventPromotion: TextView = itemView.findViewById(R.id.tv_ufc_Event_Promotion)
             var ufcEventWinner: TextView = itemView.findViewById(R.id.currently_fighter_division)
             var ufcEventLoser: TextView = itemView.findViewById(R.id.tv_ufc_event_loser)
             var ufcEventMore: TextView = itemView.findViewById(R.id.tv_more_match)

@@ -46,10 +46,6 @@ class UfcFighter {
     @Expose
     var fighter_team : String? = null
 
-    //코치
-    @Expose
-    var fighter_trainer : String? = null
-
     //활동연도
     @Expose
     var fighter_years_active : String? = null
@@ -57,10 +53,6 @@ class UfcFighter {
     //이미지
     @Expose
     var fighter_image : String? = null
-
-    //순위
-    @Expose
-    var fighter_ranking : String? = null
 
     //기록
     @Expose
