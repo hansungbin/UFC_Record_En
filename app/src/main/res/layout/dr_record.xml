@@ -25,9 +25,12 @@
                     android:id="@+id/match_kind"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center"
+                    android:padding="2dp"
                     android:text="A Match"
+                    android:background="#CCCCCC"
                     android:textColor="#26357B"
                     android:textSize="17sp"
                     android:textStyle="bold|italic" />
@@ -45,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:orientation="horizontal"
                 android:weightSum="3">
 
@@ -80,6 +84,7 @@
         </RelativeLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detail_record_constraintlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/row"
@@ -141,7 +146,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:ellipsize="end"
-                        android:gravity="center_horizontal"
+                        android:gravity="center"
                         android:maxLines="4"
                         android:text="A"
                         android:textColor="@color/colorNavIcon" />

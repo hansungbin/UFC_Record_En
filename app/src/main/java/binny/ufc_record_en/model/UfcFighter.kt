@@ -86,6 +86,10 @@ class UfcFighter {
     @Expose
     var l_decision       : Int? = null
 
+    //기타 승패 기록
+    @Expose
+    var fighter_etc_result : String? = null
+
     @Expose
     var total_fighter_record:  List<DetailFighterResult>? = null
 }

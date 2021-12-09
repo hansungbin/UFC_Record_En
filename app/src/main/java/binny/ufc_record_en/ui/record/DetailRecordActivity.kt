@@ -2,6 +2,7 @@ package binny.ufc_record_en.ui.record
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import binny.ufc_record_en.R
@@ -87,10 +89,19 @@ class DetailRecordActivity : AppCompatActivity() {
         @SuppressLint("SetTextI18n")
         override fun onBindViewHolder(holder: DRItem, position: Int) {
 
+            val logTag = "로그 DetailRecordActivity"
+            Log.d(logTag, "onBindViewHolder: position = $position")
             val detailRecord: UfcEventResult = mUfcResult!![position]
             val searchWinerName = detailRecord.game_winner.toString().split("|")
             val searchLoserName = detailRecord.game_loser.toString().split("|")
+//detail_record_onstraintlayout
+            if(position % 2 != 1) {
+                holder.detailRecordConstraintlayout.setBackgroundColor(Color.parseColor("#ffffff"))
+            }
 
+//            if (position %2 != 1 ){
+//                holder.detailConstraintLayout.setBackgroundColor(Color.parseColor("#ffffff"))
+//            }
             var winner = ""
             var loser = ""
 
@@ -185,6 +196,8 @@ class DetailRecordActivity : AppCompatActivity() {
             var loser : TextView = drRecordBinding.loser
             var matchKindLayout : LinearLayout = drRecordBinding.matchKindLayout
             var rowLayout : RelativeLayout = drRecordBinding.row
+            var detailRecordConstraintlayout : ConstraintLayout = drRecordBinding.detailRecordConstraintlayout
+//            detail_record_onstraintlayout
         }
     }
 }

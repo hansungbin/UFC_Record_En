@@ -54,8 +54,8 @@
                     android:layout_weight="1"
                     android:text="@string/ufc_match"
                     android:textColor="@color/teal_700"
-                    android:textStyle="bold|italic"
-                    android:textSize="22sp"/>
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic" />
 
                 <TextView
                     android:id="@+id/tv_event_date"
@@ -65,7 +65,7 @@
                     android:maxLines="4"
                     android:text="2021-12-01"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_promotion_name"
@@ -78,7 +78,6 @@
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_match_name"
                     app:layout_constraintTop_toBottomOf="@+id/tv_match_name" />
-
 
                 <TextView
                     android:id="@+id/tv_match_Venue"
@@ -107,17 +106,17 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
         <!-- 메치 결과 -->
         <!-- 테스트 테이블 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ConstraintLayoutResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/con_lay_div_bonus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/m_recycler_view"
@@ -145,8 +144,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/m_recycler_view">
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/con_lay_div_bonus"
@@ -158,7 +157,6 @@
             android:layout_marginBottom="10dp"
             android:background="#A3A3A3"
             android:orientation="vertical"
-
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -187,6 +185,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

@@ -25,6 +25,8 @@ import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.log
+
 // Fighter 디테일 페이지
 class FighterActivity : AppCompatActivity(){
 
@@ -78,6 +80,11 @@ class FighterActivity : AppCompatActivity(){
                         binding.tvFighterDivision.visibility = View.GONE
                     }
 
+                    Log.d(logTag, "onResponse: result.data?.get(0)!!.fighter_etc_result = ${result.data?.get(0)!!.fighter_etc_result}")
+                    if (result.data?.get(0)!!.fighter_etc_result?.isNotEmpty() == true) {
+                        Log.d(logTag, "onResponse: come in")
+                        binding.tvEtc.text = result.data?.get(0)!!.fighter_etc_result
+                    } else { binding.tvEtc.visibility = View.GONE }
                     binding.tvFighterResidence.text = result.data?.get(0)!!.fighter_residence
                     binding.tvWKnockout.text = result.data?.get(0)!!.w_knockout.toString()
                     binding.tvWSubmission.text = result.data?.get(0)!!.w_submission.toString()
@@ -154,10 +161,16 @@ class FighterActivity : AppCompatActivity(){
                 detailFighterRecord.detail_fighter_against!!
             }
 
+            val againtMethod = if (detailFighterRecord.detail_fighter_method!!.length > 18) {
+                detailFighterRecord.detail_fighter_method!!.substring(0, 16) + ".."
+            } else {
+                detailFighterRecord.detail_fighter_method!!
+            }
+
             holder.tvIdx.text = (position+1).toString()
             holder.tvDetailFighterResult.text = detailFighterRecord.detail_fighter_result + "\n" + detailFighterRecord.detail_fighter_match_round  + " Round"
             holder.tvDetailFighterRecord.text = detailFighterRecord.detail_fighter_record + "\n" + detailFighterRecord.detail_fighter_match_time
-            holder.btnDetailFighterAgainst.text = againtFighter +"\n" + detailFighterRecord.detail_fighter_method
+            holder.btnDetailFighterAgainst.text = againtFighter +"\n" + againtMethod
             holder.tvDetailFighterMatchDay.text = detailFighterRecord.detail_fighter_match_day + "\n" + detailFighterRecord.detail_fighter_event_name
             Log.d(logTag, "onBindViewHolder: holder.tvIdx.text = ${holder.tvIdx.text}")
             if (position %2 != 1 ){
