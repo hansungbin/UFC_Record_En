@@ -50,14 +50,14 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="15">
 
 
                 <TextView
                     android:id="@+id/textWeightClass"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/weight_class"
                     android:textColor="@color/row" />
@@ -66,7 +66,7 @@
                     android:id="@+id/textWinner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="6"
                     android:gravity="center"
                     android:text="@string/winner"
                     android:textColor="@color/row" />
@@ -75,7 +75,7 @@
                     android:id="@+id/TextLoser"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="6"
                     android:gravity="center"
                     android:text="@string/loser"
                     android:textColor="@color/row" />
@@ -137,14 +137,14 @@
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="0dp"
                     android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="12">
 
 
                     <TextView
-                        android:id="@+id/Gclass"
+                        android:id="@+id/Ground"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:ellipsize="end"
                         android:gravity="center"
                         android:maxLines="4"
@@ -152,24 +152,24 @@
                         android:textColor="@color/colorNavIcon" />
 
                     <Button
-                        android:id="@+id/winner"
+                        android:id="@+id/Gwinner"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="5"
                         android:ellipsize="end"
                         android:gravity="center"
-                        android:maxLines="4"
+                        android:maxLines="3"
                         android:text="B"
                         android:textColor="@color/colorNavIcon" />
 
                     <Button
-                        android:id="@+id/loser"
+                        android:id="@+id/Gloser"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="5"
                         android:ellipsize="end"
                         android:gravity="center"
-                        android:maxLines="4"
+                        android:maxLines="3"
                         android:text="C"
                         android:textColor="@color/colorNavIcon" />
                 </LinearLayout>

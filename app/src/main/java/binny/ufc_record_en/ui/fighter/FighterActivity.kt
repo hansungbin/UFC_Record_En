@@ -154,8 +154,8 @@ class FighterActivity : AppCompatActivity(){
             val logTag = "로그 FighterActivity"
 
             Log.d(logTag, "onBindViewHolder: position = $position")
-            val againtFighter = if (detailFighterRecord.detail_fighter_against!!.length > 25) {
-                detailFighterRecord.detail_fighter_against!!.substring(0, 22) + ".."
+            val againtFighter = if (detailFighterRecord.detail_fighter_against!!.length > 18) {
+                detailFighterRecord.detail_fighter_against!!.substring(0, 16) + ".."
             } else {
                 detailFighterRecord.detail_fighter_against!!
             }

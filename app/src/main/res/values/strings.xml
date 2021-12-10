@@ -16,9 +16,9 @@
     <string name="heavyweight_nko_punch">HeavyWeight \nKO (punch)</string>
     <string name="francis_ngannou">Francis_Ngannou</string>
     <string name="champion">Champion</string>
-    <string name="weight_class">Weight class</string>
-    <string name="winner">Winner</string>
-    <string name="loser">Loser</string>
+    <string name="weight_class">Round\nTime</string>
+    <string name="winner">Winner\nMethod</string>
+    <string name="loser">Loser\nClass</string>
     <string name="open">Open</string>
     <string name="on">On</string>
     <string name="off">Off</string>

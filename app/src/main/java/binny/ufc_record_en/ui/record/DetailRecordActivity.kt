@@ -142,32 +142,31 @@ class DetailRecordActivity : AppCompatActivity() {
                 detailRecord.game_method!!.toString()
             }
 
-
-            holder.gClass.text = weightClass + "\n"+ gameMethod
+            holder.gRound.text = detailRecord.game_round.toString()+" Round\n" + detailRecord.game_match_time
 
             if (winner.length > 15) {
-                holder.winner.text =
-                    winner!!.substring(0, 13) + ".." + "\n( " + detailRecord.game_round.toString() + " Round )"
+                holder.gWinner.text =
+                    winner!!.substring(0, 13) + ".." + "\n" + gameMethod
             } else {
-                holder.winner.text =
-                    winner + "\n(" + detailRecord.game_round.toString() + " Round )"
+                holder.gWinner.text =
+                    winner + "\n" + gameMethod
             }
 
             if (detailRecord.game_loser.toString().length > 15) {
-                holder.loser.text =
-                    loser!!.substring(0, 13) + ".." + "\n" + detailRecord.game_match_time.toString().substring(3)
+                holder.gLoser.text =
+                    loser!!.substring(0, 13) + ".." + "\n" + gameMethod
             } else {
-                holder.loser.text =
-                    loser + "\n" + detailRecord.game_match_time.toString().substring(3)
+                holder.gLoser.text =
+                    loser + "\n" + gameMethod
             }
 
-            holder.winner.setOnClickListener {
+            holder.gWinner.setOnClickListener {
                 val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
                 intent.putExtra("fighterName", searchWinerName[0])
                 startActivity(intent)
             }
 
-            holder.loser.setOnClickListener {
+            holder.gLoser.setOnClickListener {
                 val intent = Intent(this@DetailRecordActivity , FighterActivity::class.java)
                 intent.putExtra("fighterName", searchLoserName[0])
                 startActivity(intent)
@@ -191,9 +190,9 @@ class DetailRecordActivity : AppCompatActivity() {
             // 경기 결과에 관한 목록들
             var gNumber : TextView = drRecordBinding.tvGameNumber
             var matchKind : TextView = drRecordBinding.matchKind
-            var gClass : TextView = drRecordBinding.Gclass
-            var winner : TextView = drRecordBinding.winner
-            var loser : TextView = drRecordBinding.loser
+            var gRound : TextView = drRecordBinding.Ground
+            var gWinner : TextView = drRecordBinding.Gwinner
+            var gLoser : TextView = drRecordBinding.Gloser
             var matchKindLayout : LinearLayout = drRecordBinding.matchKindLayout
             var rowLayout : RelativeLayout = drRecordBinding.row
             var detailRecordConstraintlayout : ConstraintLayout = drRecordBinding.detailRecordConstraintlayout
