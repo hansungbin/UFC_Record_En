@@ -463,11 +463,11 @@
 
                     <TextView
                         android:id="@+id/tv_list_inx"
-                        android:layout_width="20dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
                         android:gravity="center"
-                        android:text="N\nO"
+                        android:text="NO"
                         android:textColor="#6F6F6F"
                         android:textStyle="italic"
 
@@ -500,7 +500,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="4"
                                 android:gravity="center"
-                                android:text="result\nround"
+                                android:layout_marginStart="10dp"
+                                android:text="result\nrecord"
                                 android:textColor="@color/colorNavIcon" />
 
                             <TextView
@@ -509,7 +510,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="3"
                                 android:gravity="center"
-                                android:text="record\ntime"
+                                android:text="round\ntime"
                                 android:textColor="@color/colorNavIcon" />
 
                             <TextView
@@ -518,6 +519,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="7"
                                 android:gravity="center"
+                                android:layout_marginStart="30dp"
                                 android:text="opponent \nmethod"
                                 android:textColor="@color/colorNavIcon" />
 
@@ -525,6 +527,7 @@
                                 android:id="@+id/tv_list_detail_fighter_method"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
                                 android:layout_weight="7"
                                 android:gravity="center"
                                 android:text="match day\nevent name"

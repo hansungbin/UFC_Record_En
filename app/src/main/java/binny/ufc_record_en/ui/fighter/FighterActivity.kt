@@ -25,7 +25,6 @@ import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.log
 
 // Fighter 디테일 페이지
 class FighterActivity : AppCompatActivity(){
@@ -155,8 +154,8 @@ class FighterActivity : AppCompatActivity(){
             val logTag = "로그 FighterActivity"
 
             Log.d(logTag, "onBindViewHolder: position = $position")
-            val againtFighter = if (detailFighterRecord.detail_fighter_against!!.length > 18) {
-                detailFighterRecord.detail_fighter_against!!.substring(0, 16) + ".."
+            val againtFighter = if (detailFighterRecord.detail_fighter_against!!.length > 25) {
+                detailFighterRecord.detail_fighter_against!!.substring(0, 22) + ".."
             } else {
                 detailFighterRecord.detail_fighter_against!!
             }
@@ -168,8 +167,8 @@ class FighterActivity : AppCompatActivity(){
             }
 
             holder.tvIdx.text = (position+1).toString()
-            holder.tvDetailFighterResult.text = detailFighterRecord.detail_fighter_result + "\n" + detailFighterRecord.detail_fighter_match_round  + " Round"
-            holder.tvDetailFighterRecord.text = detailFighterRecord.detail_fighter_record + "\n" + detailFighterRecord.detail_fighter_match_time
+            holder.tvDetailFighterResult.text = detailFighterRecord.detail_fighter_result + "\n" + detailFighterRecord.detail_fighter_record
+            holder.tvDetailFighterRound.text = detailFighterRecord.detail_fighter_match_round + " Round\n" + detailFighterRecord.detail_fighter_match_time
             holder.btnDetailFighterAgainst.text = againtFighter +"\n" + againtMethod
             holder.tvDetailFighterMatchDay.text = detailFighterRecord.detail_fighter_match_day + "\n" + detailFighterRecord.detail_fighter_event_name
             Log.d(logTag, "onBindViewHolder: holder.tvIdx.text = ${holder.tvIdx.text}")
@@ -201,7 +200,7 @@ class FighterActivity : AppCompatActivity(){
         inner class DFItem(dfListBinding: DfListBinding) : RecyclerView.ViewHolder(dfListBinding.root) {
             var tvIdx : TextView = dfListBinding.tvInx
             var tvDetailFighterResult : TextView = dfListBinding.tvDetailFighterResult
-            var tvDetailFighterRecord: TextView = dfListBinding.tvDetailFighterRecord
+            var tvDetailFighterRound: TextView = dfListBinding.tvDetailFighterRound //tv_detail_fighter_round
             var btnDetailFighterAgainst: Button = dfListBinding.btnDetailFighterAgainst
             var tvDetailFighterMatchDay: TextView = dfListBinding.tvDetailFighterMatchDay
             var detailConstraintLayout: ConstraintLayout = dfListBinding.DetailConstraintLayout
