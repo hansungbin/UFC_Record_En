@@ -82,7 +82,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/tv_mpfp_fighter_name"
+                            android:id="@+id/tv_fighter_detail_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
@@ -103,6 +103,7 @@
             android:id="@+id/constraintLayout_recyc_mpfp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/flyw_main_constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mpfp_main_constraintLayout">
@@ -149,7 +150,7 @@
             android:id="@+id/flyw_main_constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout_recyc_flyw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout_recyc_mpfp">
@@ -235,6 +236,7 @@
             android:id="@+id/constraintLayout_recyc_flyw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/bantamw_main_constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/flyw_main_constraintLayout">
@@ -282,6 +284,7 @@
             android:id="@+id/bantamw_main_constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout_recyc_bantamw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout_recyc_flyw">
@@ -368,6 +371,7 @@
             android:id="@+id/constraintLayout_recyc_bantamw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/featherw_main_constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bantamw_main_constraintLayout">
@@ -1220,6 +1224,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- heavyw 끝   -->
+        <!--  /////////////////////////////////////////////////////////////////////////  -->
 
         <!-- wpfp 시작-->
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -1356,7 +1361,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- wpfp 끝   -->
-
+        <!--  /////////////////////////////////////////////////////////////////////////  -->
         <!-- wstraww 시작-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/wstraww_main_constraintLayout"
@@ -1451,7 +1456,6 @@
             android:id="@+id/constraintLayout_recyc_wstraww"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/wbantamw_main_constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/wstraww_main_constraintLayout">
@@ -1493,18 +1497,17 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- wstraww 끝   -->
-
+        <!--  /////////////////////////////////////////////////////////////////////////  -->
         <!-- wflyw 시작-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/wflyw_main_constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginBottom="1dp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout_recyc_wflyw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_recyc_wpfp">
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout_recyc_wstraww">
 
             <TextView
                 android:id="@+id/tv_wflyw_title"
@@ -1765,7 +1768,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- wbantamw 끝   -->
-
+        <!--  /////////////////////////////////////////////////////////////////////////  -->
         <!-- 전체 ConstraintLayout -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

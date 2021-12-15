@@ -30,7 +30,8 @@ import retrofit2.Callback
 class DetailRecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailRecordBinding
     private val mApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
-
+    private var recordLayout : Int = 0
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailRecordBinding.inflate(layoutInflater)
@@ -89,19 +90,10 @@ class DetailRecordActivity : AppCompatActivity() {
         @SuppressLint("SetTextI18n")
         override fun onBindViewHolder(holder: DRItem, position: Int) {
 
-            val logTag = "로그 DetailRecordActivity"
-            Log.d(logTag, "onBindViewHolder: position = $position")
             val detailRecord: UfcEventResult = mUfcResult!![position]
             val searchWinerName = detailRecord.game_winner.toString().split("|")
             val searchLoserName = detailRecord.game_loser.toString().split("|")
-//detail_record_onstraintlayout
-            if(position % 2 != 1) {
-                holder.detailRecordConstraintlayout.setBackgroundColor(Color.parseColor("#ffffff"))
-            }
 
-//            if (position %2 != 1 ){
-//                holder.detailConstraintLayout.setBackgroundColor(Color.parseColor("#ffffff"))
-//            }
             var winner = ""
             var loser = ""
 
@@ -121,11 +113,17 @@ class DetailRecordActivity : AppCompatActivity() {
                 }
                 mUfcResult!![position].game_kind != mUfcResult!![position - 1].game_kind -> {
                     holder.matchKind.text = detailRecord.game_kind.toString()
+
                 }
                 else -> {
                     holder.matchKindLayout.visibility = View.GONE
                     holder.rowLayout.visibility = View.GONE
                 }
+            }
+
+            if(position % 2 != 0) {
+                holder.relayoutrow.setBackgroundColor(Color.parseColor("#e1e1e1"))
+                holder.detailRecordConstraintlayout.setBackgroundColor(Color.parseColor("#ffffff"))
             }
 
             holder.gNumber.text = ((position+1).toString())
@@ -196,6 +194,8 @@ class DetailRecordActivity : AppCompatActivity() {
             var matchKindLayout : LinearLayout = drRecordBinding.matchKindLayout
             var rowLayout : RelativeLayout = drRecordBinding.row
             var detailRecordConstraintlayout : ConstraintLayout = drRecordBinding.detailRecordConstraintlayout
+            var relayoutrow : RelativeLayout = drRecordBinding.row
+
 //            detail_record_onstraintlayout
         }
     }

@@ -47,7 +47,7 @@
                 android:textColor="@color/black"
                 android:textSize="21sp"
                 android:textStyle="bold|italic"
-                app:layout_constraintBottom_toTopOf="@+id/tv_fighter_other_names"
+                app:layout_constraintBottom_toTopOf="@+id/tv_fighter_detail_other_names"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,20 +83,20 @@
 <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
             <TextView
-                android:id="@+id/tv_fighter_other_names"
+                android:id="@+id/tv_fighter_detail_other_names"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
                 android:text="The Korean Zombie"
                 android:textColor="#94999E"
                 android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_fighter_nationality"
+                app:layout_constraintBottom_toTopOf="@+id/tv_fighter_detail_nationality"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_list_fighter_name" />
 
 
             <TextView
-                android:id="@+id/tv_fighter_nationality"
+                android:id="@+id/tv_fighter_detail_nationality"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
@@ -105,7 +105,7 @@
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fighter_other_names" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_fighter_detail_other_names" />
 
             <TextView
                 android:id="@+id/tv_fighter_record"

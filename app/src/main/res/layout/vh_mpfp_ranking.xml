@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_mpfp_fighter_name"
+            android:id="@+id/tv_fighter_detail_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"

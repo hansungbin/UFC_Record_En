@@ -48,16 +48,16 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_inx"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:id="@+id/match_layout0"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:weightSum="21">
+                    android:weightSum="23">
 
                     <TextView
                         android:id="@+id/tv_detail_fighter_result"
-                        android:layout_width="54dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
                         android:gravity="center"
@@ -70,9 +70,9 @@
 
                     <TextView
                         android:id="@+id/tv_detail_fighter_round"
-                        android:layout_width="60dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
+                        android:layout_weight="4"
                         android:gravity="center"
                         android:text="17–6"
                         android:textColor="@color/colorNavIcon"
@@ -83,9 +83,9 @@
 
                     <Button
                         android:id="@+id/btn_detail_fighter_against"
-                        android:layout_width="150dp"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="7"
+                        android:layout_weight="8"
                         android:gravity="center"
                         android:maxLines="3"
                         android:text="Dan Ige"
@@ -100,7 +100,7 @@
                         android:id="@+id/tv_detail_fighter_match_day"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="7"
+                        android:layout_weight="8"
                         android:gravity="center"
                         android:maxLines="3"
                         android:text="Decision\n(unanimous)"
@@ -111,53 +111,7 @@
                         app:layout_constraintStart_toEndOf="@+id/btn_detail_fighter_against"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_below="@+id/match_layout0"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    android:weightSum="20">-->
-
-                <!--                    <TextView-->
-                <!--                        android:id="@+id/tv_detail_fighter_match_round"-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_weight="4"-->
-                <!--                        android:gravity="center"-->
-                <!--                        android:text="5 round"-->
-                <!--                        android:textColor="@color/colorNavIcon" />-->
-
-                <!--                    <TextView-->
-                <!--                        android:id="@+id/tv_detail_fighter_match_time"-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_weight="3"-->
-                <!--                        android:gravity="center"-->
-                <!--                        android:text="05:00"-->
-                <!--                        android:textColor="@color/colorNavIcon" />-->
-
-                <!--                    <TextView-->
-                <!--                        android:id="@+id/tv_detail_fighter_method"-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_weight="6"-->
-                <!--                        android:gravity="center"-->
-                <!--                        android:maxLines="2"-->
-                <!--                        android:text="2021-06-19"-->
-                <!--                        android:textColor="@color/colorNavIcon" />-->
-
-                <!--                    <TextView-->
-                <!--                        android:id="@+id/tv_detail_fighter_event_name"-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_weight="7"-->
-                <!--                        android:gravity="center"-->
-                <!--                        android:maxLines="2"-->
-                <!--                        android:text="UFC on ESPN:The Kor.."-->
-                <!--                        android:textColor="@color/colorNavIcon" />-->
-                <!--                </LinearLayout>-->
+                </LinearLayout>
 
             </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -94,86 +94,79 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/tv_mpfp_fighter_name"
+                        android:id="@+id/tv_fighter_detail_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="2"
                         android:text="@string/fighter_name"
                         android:textColor="@color/colorNavIcon"
                         android:textSize="25sp"
                         android:textStyle="bold|italic"
-                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_born"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_detail_born"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
 
                     <TextView
-                        android:id="@+id/tv_fighter_born"
+                        android:id="@+id/tv_fighter_detail_born"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/fighter_born"
                         android:textColor="@color/colorNavIcon"
-
                         android:textSize="16sp"
-                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_other_names"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_detail_other_names"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_mpfp_fighter_name" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_detail_name" />
 
 
                     <TextView
-                        android:id="@+id/tv_fighter_other_names"
+                        android:id="@+id/tv_fighter_detail_other_names"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/fighter_other_names"
                         android:textColor="@color/colorNavIcon"
                         android:textSize="16sp"
-                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_residence"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_detail_residence"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_born" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_detail_born" />
 
                     <TextView
-                        android:id="@+id/tv_fighter_residence"
+                        android:id="@+id/tv_fighter_detail_residence"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="Enterprise"
                         android:textColor="@color/colorNavIcon"
                         android:textSize="16sp"
-                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_nationality"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_detail_nationality"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_other_names" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_detail_other_names" />
 
                     <TextView
-                        android:id="@+id/tv_fighter_nationality"
+                        android:id="@+id/tv_fighter_detail_nationality"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/fighter_nationality"
                         android:textColor="@color/colorNavIcon"
                         android:textSize="16sp"
-                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_division"
+                        app:layout_constraintBottom_toTopOf="@+id/tv_fighter_detail_division"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_residence" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_detail_residence" />
 
                     <TextView
-                        android:id="@+id/tv_fighter_division"
+                        android:id="@+id/tv_fighter_detail_division"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/fighter_division"
                         android:textColor="@color/colorNavIcon"
-                        android:textSize="13sp"
+                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_nationality" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fighter_detail_nationality" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -479,6 +472,8 @@
                     <RelativeLayout
                         android:id="@+id/list_match_body"
                         android:layout_width="0dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layout_constraintBottom_toTopOf="@+id/fighter_detail_result_recycler_view"
@@ -491,7 +486,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-
                             android:weightSum="21">
 
                             <TextView

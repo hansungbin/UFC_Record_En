@@ -41,6 +41,7 @@
             android:id="@+id/row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:layout_below="@+id/division_layout">
 
             <LinearLayout
@@ -60,7 +61,7 @@
                     android:layout_weight="3"
                     android:gravity="center"
                     android:text="@string/weight_class"
-                    android:textColor="@color/row" />
+                    android:textColor="@color/colorNavIcon" />
 
                 <TextView
                     android:id="@+id/textWinner"
@@ -69,7 +70,7 @@
                     android:layout_weight="6"
                     android:gravity="center"
                     android:text="@string/winner"
-                    android:textColor="@color/row" />
+                    android:textColor="@color/colorNavIcon" />
 
                 <TextView
                     android:id="@+id/TextLoser"
@@ -78,7 +79,7 @@
                     android:layout_weight="6"
                     android:gravity="center"
                     android:text="@string/loser"
-                    android:textColor="@color/row" />
+                    android:textColor="@color/colorNavIcon" />
             </LinearLayout>
 
         </RelativeLayout>

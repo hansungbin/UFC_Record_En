@@ -991,7 +991,7 @@ class RankingFragment : Fragment() {
         inner class MpfpRankingItem(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
             var tvMpfpNo: TextView = itemView.findViewById(R.id.tv_mpfp_no)
-            var tvMpfpfighterName: TextView = itemView.findViewById(R.id.tv_mpfp_fighter_name)
+            var tvMpfpfighterName: TextView = itemView.findViewById(R.id.tv_fighter_detail_name)
             var constraintLayoutMpfp: ConstraintLayout =
                 itemView.findViewById(R.id.constraintLayout_recyc_mpfp)
 
