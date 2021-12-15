@@ -61,4 +61,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cancelMatch">THIS MATCH HAS BEEN CANCELED</string>
+    <string name="men_s_pound_for_pound_list_open">MEN\'S POUND FOR POUND LIST OPEN</string>
+    <string name="flyweight_list_open">FLYWEIGHT LIST OPEN</string>
+    <string name="bantamweight_list_open">BANTAMWEIGHT LIST OPEN</string>
+    <string name="featherweight_list_open">FEATHERWEIGHT LIST OPEN</string>
+    <string name="lightweight_list_open">LIGHTWEIGHT LIST OPEN</string>
+    <string name="welterweight_list_open">WELTERWEIGHT LIST OPEN</string>
+    <string name="middle_weight_list_open">MIDDLE WEIGHT LIST OPEN</string>
+    <string name="lightheavy_weight_list_open">LIGHTHEAVY WEIGHT LIST OPEN</string>
+    <string name="heavyweight_weight_list_open">HEAVYWEIGHT WEIGHT LIST OPEN</string>
+    <string name="women_s_pound_for_pound_list_open">WOMEN\'S POUND FOR POUND LIST OPEN</string>
+    <string name="women_s_strawweight_list_open">WOMEN\'S STRAWWEIGHT LIST OPEN</string>
+    <string name="women_s_flyweight_list_open">WOMEN\'S FLYWEIGHT LIST OPEN</string>
+    <string name="women_s_bantamweight_list_open">WOMEN\'S BANTAMWEIGHT LIST OPEN</string>
 </resources>

@@ -958,7 +958,6 @@
             android:id="@+id/lightheavyw_main_constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginBottom="1dp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout_recyc_lightheavyw"
             app:layout_constraintEnd_toEndOf="parent"
