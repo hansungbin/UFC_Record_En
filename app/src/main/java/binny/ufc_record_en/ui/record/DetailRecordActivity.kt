@@ -30,8 +30,7 @@ import retrofit2.Callback
 class DetailRecordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailRecordBinding
     private val mApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
-    private var recordLayout : Int = 0
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailRecordBinding.inflate(layoutInflater)
@@ -144,7 +143,7 @@ class DetailRecordActivity : AppCompatActivity() {
 
             if (winner.length > 15) {
                 holder.gWinner.text =
-                    winner!!.substring(0, 13) + ".." + "\n" + gameMethod
+                    winner.substring(0, 13) + ".." + "\n" + gameMethod
             } else {
                 holder.gWinner.text =
                     winner + "\n" + gameMethod
@@ -152,10 +151,10 @@ class DetailRecordActivity : AppCompatActivity() {
 
             if (detailRecord.game_loser.toString().length > 15) {
                 holder.gLoser.text =
-                    loser!!.substring(0, 13) + ".." + "\n" + gameMethod
+                    loser.substring(0, 13) + ".." + "\n" + weightClass
             } else {
                 holder.gLoser.text =
-                    loser + "\n" + gameMethod
+                    loser + "\n" + weightClass
             }
 
             holder.gWinner.setOnClickListener {

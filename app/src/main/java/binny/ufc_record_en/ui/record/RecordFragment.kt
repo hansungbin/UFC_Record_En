@@ -49,7 +49,7 @@ class RecordFragment : Fragment() {
 
         rRecyclerView = root.findViewById(R.id.recordRecyclerView)
         rRecyclerView?.layoutManager = LinearLayoutManager(context)
-        val rAdapter = Radapter()
+        val rAdapter = RAdapter()
 
         rRecyclerView?.adapter = rAdapter
         etSearch = root.findViewById(R.id.et_record_search)
@@ -75,7 +75,7 @@ class RecordFragment : Fragment() {
         return root
     }
 
-    private fun getRecordApi(rAdapter: Radapter) {
+    private fun getRecordApi(rAdapter: RAdapter) {
 
         //쿼리 값을 Map 으로 생성하여 api 호출
         val queries = mapOf("ufc_event_search" to etSearch!!.text.toString())
@@ -117,10 +117,9 @@ class RecordFragment : Fragment() {
         rRecyclerView = null
     }
 
-    inner class Radapter : RecyclerView.Adapter<RecordFragment.Radapter.RvhItem>() {
+    inner class RAdapter : RecyclerView.Adapter<RecordFragment.RAdapter.RvhItem>() {
 
         private var showMatchCount: Int? = 0
-        private var matchCount: Int? = 0
         private var mUfcRecord: ArrayList<UfcEvent>? = ArrayList()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvhItem {

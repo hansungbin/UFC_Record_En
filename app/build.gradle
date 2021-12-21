@@ -4,6 +4,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\Coding\\AndroidStudio\\apk\\ufc_record_key_store.jks')
+            storePassword 'tjdqls316'
+            keyAlias 'ufc_alias'
+            keyPassword 'tjdqls316'
+        }
+    }
     compileSdk 31
 
     defaultConfig {
@@ -20,6 +28,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
