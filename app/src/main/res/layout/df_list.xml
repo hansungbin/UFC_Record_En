@@ -14,6 +14,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fighter_record_yet_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/registered_yet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Detail_ConstraintLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -54,6 +67,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="23">
+
 
                     <TextView
                         android:id="@+id/tv_detail_fighter_result"

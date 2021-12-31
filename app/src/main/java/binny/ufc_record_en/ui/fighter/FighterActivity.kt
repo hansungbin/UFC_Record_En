@@ -31,7 +31,7 @@ class FighterActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityFighterBinding
     private val fApi: ApiInterface? = HttpClient.getRetrofit()?.create(ApiInterface::class.java)
-
+    private val logTag = "로그 FighterActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFighterBinding.inflate(layoutInflater)
@@ -47,6 +47,8 @@ class FighterActivity : AppCompatActivity(){
         val queries = mapOf("ufc_fighter_name" to param)
         val call : Call<Fighter?>? = fApi!!.getFighterDetailData(queries)
 
+        Log.d(logTag, "onCreate: 11111")
+        
         binding.btnFighterListBack.setOnClickListener {
             this.finish()
         }
@@ -62,6 +64,7 @@ class FighterActivity : AppCompatActivity(){
 
                     adapter.setList(result.data?.get(0)?.total_fighter_record)
 
+                    Log.d(logTag, "onResponse: 1")
                     if (result.data?.get(0)!!.fighter_name!!.isNotEmpty()) {
                         if(result.data?.get(0)!!.fighter_name!!.isNotEmpty()) {
                             binding.tvFighterDetailName.text = result.data?.get(0)!!.fighter_name
@@ -69,7 +72,7 @@ class FighterActivity : AppCompatActivity(){
                         if(result.data?.get(0)!!.fighter_born!!.isNotEmpty()) {
                             binding.tvFighterDetailBorn.text = result.data?.get(0)!!.fighter_born
                         }else {binding.tvFighterDetailBorn.visibility = View.GONE}
-
+                        Log.d(logTag, "onResponse: 2")
                         if(result.data?.get(0)!!.fighter_other_names!!.isNotEmpty()) {
                             binding.tvFighterDetailOtherNames.text = result.data?.get(0)!!.fighter_other_names
                         }else {binding.tvFighterDetailOtherNames.visibility = View.GONE}
@@ -85,6 +88,7 @@ class FighterActivity : AppCompatActivity(){
                         if(result.data?.get(0)!!.fighter_nationality!!.isNotEmpty()) {
                             binding.tvFighterDetailNationality.text = result.data?.get(0)!!.fighter_nationality
                         }else {binding.tvFighterDetailNationality.visibility = View.GONE}
+                        Log.d(logTag, "onResponse: 3")
                     } else {
                         binding.tvFighterDetailName.visibility = View.GONE
                         binding.tvFighterDetailBorn.visibility = View.GONE
@@ -92,8 +96,10 @@ class FighterActivity : AppCompatActivity(){
                         binding.tvFighterDetailResidence.visibility = View.GONE
                         binding.tvFighterDetailNationality.visibility = View.GONE
                         binding.tvFighterDetailDivision.visibility = View.GONE
+                        Log.d(logTag, "onResponse: 4")
                     }
 
+                    Log.d(logTag, "onResponse: 5")
                     if (result.data?.get(0)!!.fighter_etc_result?.isNotEmpty() == true) {
                         binding.tvEtc.text = result.data?.get(0)!!.fighter_etc_result
                     } else { binding.tvEtc.visibility = View.GONE }
@@ -107,26 +113,17 @@ class FighterActivity : AppCompatActivity(){
                     binding.tvTotalMatch.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
                             result.data?.get(0)!!.w_decision!! + result.data?.get(0)!!.l_knockout!! +
                             result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
-                    binding.tvTotalWin.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
-                            result.data?.get(0)!!.w_decision!!).toString()
-                    binding.tvTotalLose.text = (result.data?.get(0)!!.l_knockout!! +
-                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
+//                    binding.tvTotalWin.text = (result.data?.get(0)!!.w_knockout!! + result.data?.get(0)!!.w_submission!! +
+//                            result.data?.get(0)!!.w_decision!!).toString()
+//                    binding.tvTotalLose.text = (result.data?.get(0)!!.l_knockout!! +
+//                            result.data?.get(0)!!.l_submission!! + result.data?.get(0)!!.l_decision!!).toString()
 
-                    if ((binding.tvTotalMatch.text as String).toInt() > 1){
-                        binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Matches"
-                    }else { binding.tvTotalMatch.text = binding.tvTotalMatch.text.toString() + " Match" }
-
-                    if ((binding.tvTotalWin.text as String).toInt() > 1){
-                        binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Wins"
-                    }else { binding.tvTotalWin.text = binding.tvTotalWin.text.toString() + " Win" }
-
-                    if ((binding.tvTotalLose.text as String).toInt() > 1){
-                        binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Losses"
-                    }else { binding.tvTotalLose.text = binding.tvTotalLose.text.toString() + " Lose" }
-
+                    binding.tvTotalMatch.text = result.data?.get(0)!!.fighter_record!!
+                    Log.d(logTag, "onResponse: 6")
                     Glide.with(view.context).load(result.data?.get(0)!!.fighter_image)
                         .into(binding.ivFghterImage)
                 }else if(result.data?.size!! < 1 ) {
+                    Log.d(logTag, "onResponse: 7")
                     binding.constraintLayout1.visibility = View.GONE
                     binding.noFighterConstraintLayout.visibility = View.VISIBLE
                 }
