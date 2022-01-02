@@ -111,10 +111,9 @@ class FighterListFragment : Fragment() {
             holder.fighterName.text = fighter.fighter_name.toString()
 
             holder.fighterNationality.text = fighter.fighter_nationality.toString()
-            holder.fighterRecord.text = fighter.fighter_record.toString().substring(0,10) + "\n" +fighter.fighter_record.toString().substring(11)
 
+            holder.fighterRecord.text = fighter.fighter_record.toString()
             holder.fighterDivision.text = fighter.currently_fighter_division.toString()
-
 
             if (fighter.fighter_other_names!!.isNotEmpty()) {
                 holder.fighterOtherNames.text = fighter.fighter_other_names.toString()

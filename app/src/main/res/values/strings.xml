@@ -75,4 +75,8 @@
     <string name="women_s_flyweight_list_open">WOMEN\'S FLYWEIGHT LIST OPEN</string>
     <string name="women_s_bantamweight_list_open">WOMEN\'S BANTAMWEIGHT LIST OPEN</string>
     <string name="registered_yet">The Information\nhas not been registered yet.</string>
+    <string name="match_day">match day\nevent name</string>
+    <string name="opponent">opponent\nmethod</string>
+    <string name="round">round\ntime</string>
+    <string name="result">result\nrecord</string>
 </resources>

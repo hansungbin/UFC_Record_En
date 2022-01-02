@@ -5,8 +5,7 @@
     android:id="@+id/fighter_scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    >
+    android:background="@color/colorPrimaryDark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -235,7 +234,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="2dp" >
+                        android:layout_margin="2dp">
 
                         <TextView
                             android:id="@+id/tv_total_match"
@@ -374,11 +373,11 @@
                             android:id="@+id/tv_etc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:textSize="15sp"
                             android:layout_margin="2dp"
+                            android:gravity="center"
+                            android:text="Etc_Result"
                             android:textColor="@color/colorNavIcon"
-                            android:text="Etc_Result" />
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -409,9 +408,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:padding="5dp"
                         android:background="@color/white"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="@string/tv_fighter_detail_record_summary"
                         android:textColor="@color/colorNavIcon"
                         android:textSize="15sp"
@@ -432,82 +431,106 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout421">
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fighter_all_constraintLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="vertical"
 
-                    <TextView
-                        android:id="@+id/tv_list_inx"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="3dp"
-                        android:gravity="center"
-                        android:text="NO"
-                        android:textColor="#6F6F6F"
-                        android:textStyle="italic"
-
-                        app:layout_constraintBottom_toTopOf="@+id/fighter_detail_result_recycler_view"
-                        app:layout_constraintEnd_toStartOf="@+id/list_match_body"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <RelativeLayout
-                        android:id="@+id/list_match_body"
-                        android:layout_width="0dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toTopOf="@+id/fighter_detail_result_recycler_view"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tv_list_inx"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <LinearLayout
-                            android:id="@+id/list_match_layout0"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                        <TextView
+                            android:id="@+id/tv_list_inx"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_margin="3dp"
+                            android:gravity="center"
+                            android:text="@string/no"
+                            android:textColor="#6F6F6F"
+                            android:textStyle="italic"
+                            app:layout_constraintEnd_toStartOf="@+id/list_match_body"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <RelativeLayout
+                            android:id="@+id/list_match_body"
+                            android:layout_width="0dp"
+                            android:layout_height="32dp"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="3dp"
+                            android:gravity="center"
                             android:orientation="horizontal"
-                            android:weightSum="21">
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/tv_list_inx"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                            <TextView
-                                android:id="@+id/tv_list_detail_fighter_result"
-                                android:layout_width="0dp"
+                            <LinearLayout
+                                android:id="@+id/list_match_layout0"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="4"
+                                android:layout_gravity="center_vertical"
                                 android:gravity="center"
-                                android:layout_marginStart="10dp"
-                                android:text="result\nrecord"
-                                android:textColor="@color/colorNavIcon" />
+                                android:orientation="horizontal"
+                                android:weightSum="21">
 
-                            <TextView
-                                android:id="@+id/tv_list_detail_fighter_record"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="3"
-                                android:gravity="center"
-                                android:text="round\ntime"
-                                android:textColor="@color/colorNavIcon" />
+                                <TextView
+                                    android:id="@+id/tv_list_detail_fighter_result"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_weight="4"
+                                    android:gravity="center"
+                                    android:text="@string/result"
+                                    android:textColor="@color/colorNavIcon" />
 
-                            <TextView
-                                android:id="@+id/tv_list_detail_fighter_against"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="7"
-                                android:gravity="center"
-                                android:layout_marginStart="30dp"
-                                android:text="opponent \nmethod"
-                                android:textColor="@color/colorNavIcon" />
+                                <TextView
+                                    android:id="@+id/tv_list_detail_fighter_record"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="3"
+                                    android:gravity="center"
+                                    android:text="@string/round"
+                                    android:textColor="@color/colorNavIcon" />
 
-                            <TextView
-                                android:id="@+id/tv_list_detail_fighter_method"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="20dp"
-                                android:layout_weight="7"
-                                android:gravity="center"
-                                android:text="match day\nevent name"
-                                android:textColor="@color/colorNavIcon" />
-                        </LinearLayout>
+                                <TextView
+                                    android:id="@+id/tv_list_detail_fighter_against"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="30dp"
+                                    android:layout_weight="7"
+                                    android:gravity="center"
+                                    android:text="@string/opponent"
+                                    android:textColor="@color/colorNavIcon" />
 
-                    </RelativeLayout>
+                                <TextView
+                                    android:id="@+id/tv_list_detail_fighter_method"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_weight="7"
+                                    android:gravity="center"
+                                    android:text="@string/match_day"
+                                    android:textColor="@color/colorNavIcon" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_no_record_registered"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:gravity="center"
+                        android:text="@string/registered_yet"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fighter_all_constraintLayout" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/fighter_detail_result_recycler_view"
@@ -519,7 +542,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/list_match_body" />
+                        app:layout_constraintTop_toBottomOf="@+id/fighter_all_constraintLayout" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
