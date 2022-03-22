@@ -23,7 +23,7 @@ import binny.ufc_record_en.retrofit.HttpClient
 import com.bumptech.glide.Glide
 import retrofit2.Call
 import retrofit2.Callback
-import java.util.ArrayList
+import java.util.List
 
 class RecordFragment : Fragment() {
 
@@ -120,7 +120,7 @@ class RecordFragment : Fragment() {
     inner class RAdapter : RecyclerView.Adapter<RecordFragment.RAdapter.RvhItem>() {
 
         private var showMatchCount: Int? = 0
-        private var mUfcRecord: ArrayList<UfcEvent>? = ArrayList()
+        private var mUfcRecord: List<UfcEvent>? = List()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RvhItem {
 

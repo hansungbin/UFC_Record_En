@@ -85,7 +85,7 @@ class FighterListFragment : Fragment() {
 
     inner class FAdapter : RecyclerView.Adapter<FighterListFragment.FAdapter.FvhItem>() {
 
-        private var ufcFighter: ArrayList<UfcFighter>? = ArrayList()
+        private var ufcFighter: List<UfcFighter>? = List()
 
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FvhItem {

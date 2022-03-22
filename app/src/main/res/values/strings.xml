@@ -79,4 +79,8 @@
     <string name="opponent">opponent\nmethod</string>
     <string name="round">round\ntime</string>
     <string name="result">result\nrecord</string>
+    <string name="total_matches">Total Matches</string>
+    <string name="enterprise">Enterprise</string>
+    <string name="back">Back</string>
+    <string name="etc_result">Etc_Result</string>
 </resources>

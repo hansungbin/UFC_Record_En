@@ -55,15 +55,22 @@ class FighterActivity : AppCompatActivity(){
             override fun onResponse(call: Call<Fighter?>, response: Response<Fighter?>) {
                 val result: Fighter = response.body() as Fighter
 
+                binding.constraintLayout41.visibility = View.VISIBLE
+
                 if(result.data!!.isNotEmpty()) {
                     binding.constraintLayout1.visibility = View.VISIBLE
                     binding.noFighterConstraintLayout.visibility = View.GONE
 
                     adapter.setList(result.data?.get(0)?.total_fighter_record)
 
-                    if (result.data?.get(0)?.total_fighter_record.isNullOrEmpty()) {
-                        binding.tvNoRecordRegistered.visibility = View.VISIBLE
-                    }else { binding.tvNoRecordRegistered.visibility = View.GONE }
+                    val logTag = "로그 FighterActivity"
+                    Log.d(logTag, "onResponse: result.data?.get(0)?.total_fighter_record.isNullOrEmpty() = ${result.data?.get(0)?.total_fighter_record.isNullOrEmpty()}")
+                    Log.d(logTag, "onResponse: result.data?.get(0)!!.fighter_name = ${result.data?.get(0)!!.fighter_name.toString()}")
+                    if (!result.data?.get(0)?.total_fighter_record.isNullOrEmpty()) {
+                        binding.constraintLayout41.visibility = View.VISIBLE
+                    }else {
+                        binding.constraintLayout41.visibility = View.GONE
+                    }
 
                     if (result.data?.get(0)!!.fighter_name!!.isNotEmpty()) {
                         if(result.data?.get(0)!!.fighter_name!!.isNotEmpty()) {
